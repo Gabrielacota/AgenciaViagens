@@ -1,0 +1,40 @@
+.galeria-destinos {
+  display: grid;
+  gap: 20px;
+}
+
+.card-destino {
+  border-radius: 20px;
+  border: 3px solid #eee;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card-destino img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.card-destino:hover {
+  transform: translateY(-10px);
+}
+
+.conteudo-card {
+  overflow: hidden;
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .galeria-destinos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .galeria-destinos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

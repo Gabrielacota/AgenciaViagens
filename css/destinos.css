@@ -1,6 +1,8 @@
 .galeria-destinos {
   display: grid;
   gap: 20px;
+  margin: 20px auto;
+  max-width: 1000px;
 }
 
 .card-destino {
@@ -25,6 +27,16 @@
 .conteudo-card {
   overflow: hidden;
   padding: 20px;
+}
+
+.categoria {
+  display: inline-block;
+  background-color: rgb(43, 181, 167);
+  color: #eee;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: x-small;
 }
 
 @media (min-width: 768px) {

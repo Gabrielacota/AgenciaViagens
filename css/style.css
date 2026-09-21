@@ -1,34 +1,123 @@
-/* AirFly — estilos do site (escritos primeiro para celular) */
+/* AirFly - estilos gerais (mobile first, media queries no final) */
 
-/* ---------- Variáveis ---------- */
+/* variáveis */
 :root {
-  --azul: #0A5C8A;
-  --azul-escuro: #07405F;
-  --laranja: #C0431E;
-  --fundo: #F5F8FA;
-  --texto: #16262E;
-  --borda: #DCE5EA;
+  /* cores do guia visual */
+  --azul-900: #0F2A52; /* títulos e hero */
+  --azul-700: #1B4A8F; /* links */
+  --azul-500: #235AAB; /* azul da logo */
+  --azul-100: #D6E4F7; /* azul bebê */
+  --azul-50:  #EEF4FC; /* fundo das tags */
+
+  --vermelho-700: #B81C1C; /* vermelho escuro */
+  --vermelho-600: #D92323; /* vermelho do guia (não usei em botão) */
+  --vermelho-500: #FF3131; /* vermelho da logo, só enfeite */
+  --vermelho-300: #FF8A8A; /* vermelho claro p/ fundo escuro */
+
+  --amarelo-400: #FFC13B; /* hover do amarelo */
+  --amarelo-300: #FFD166; /* botão do hero e foco */
+
+  /* nomes por função: mudando aqui muda o site todo */
+  --primaria: var(--azul-500); /* botão principal */
+  --primaria-hover: var(--azul-900);
+  --primaria-escuro: var(--amarelo-300); /* botão principal no fundo escuro */
+  --primaria-escuro-hover: var(--amarelo-400);
+  --secundaria: var(--azul-700); /* links */
+  --marca: var(--azul-500);
+  --destaque: var(--vermelho-500); /* vermelho parece alerta */
+  --titulo: var(--azul-900);
+  --texto: #1F2937;
+  --texto-suave: #4B5563;
+  --fundo: #FFFFFF;
+  --fundo-alt: #F4F7FB; /* seções alternadas */
+  --borda: #D5DEEA; /* bordas de card */
+  --borda-campo: #6B7280; /* borda do input */
+  --sobre-escuro: #E6EEFB; /* texto no fundo escuro */
+  --foco: #235AAB; /* foco */
+  --foco-escuro: var(--amarelo-300); /* foco no fundo escuro */
+
+  --erro-fundo: #FDEAEA;
+  --erro-texto: #7A1212;
+  --erro-borda: #B3261E;
+
+  /* fontes */
+  --fonte-titulo: "Bricolage Grotesque", Georgia, serif;
+  --fonte-texto: "Atkinson Hyperlegible", Arial, Helvetica, sans-serif;
+
+  /* tamanhos de fonte (fluidos) */
+  --texto-h1: clamp(2.25rem, 1.6rem + 2.6vw, 3.75rem); /* 36-60px */
+  --texto-h2: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem); /* 28-40px */
+  --texto-h3: clamp(1.375rem, 1.2rem + 0.75vw, 1.75rem); /* 22-28px */
+  --texto-h4: 1.25rem; /* 20px */
+  --texto-lead: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem); /* 20-24px */
+  --texto-corpo: 1.125rem; /* 18px */
+  --texto-minimo: 1rem; /* mínimo do guia */
+
+  /* espaçamento (escala de 4px) */
+  --esp-1: 4px;
+  --esp-2: 8px;
+  --esp-3: 12px;
+  --esp-4: 16px;
+  --esp-5: 24px;
+  --esp-6: 32px;
+  --esp-7: 48px;
+  --esp-8: 64px;
+  --esp-secao: clamp(3rem, 2rem + 4vw, 6rem); /* entre seções */
+  --gutter: clamp(1rem, 0.5rem + 2vw, 2rem); /* laterais */
+
+  /* bordas, sombra e transição */
+  --raio-campo: 8px;
+  --raio-botao: 10px;
+  --raio-card: 16px;
+  --sombra-suave: 0 10px 24px rgba(15, 42, 82, 0.14);
+  --transicao: 0.3s ease;
+  --transicao-rapida: 0.2s ease;
+  --elevar-botao: translateY(-2px); /* botão sobe no hover */
+  --elevar-card: translateY(-6px); /* card sobe no hover */
+
+  /* anel de foco atual, o hero troca */
+  --anel: var(--foco);
 }
 
-/* ---------- Base ---------- */
-* {
+/* base */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+* {
   margin: 0;
   padding: 0;
 }
 
+html {
+  scroll-padding-top: 6rem; /* espaço pra navbar fixa nas âncoras */
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-corpo);
+  line-height: 1.65;
   color: var(--texto);
   background-color: var(--fundo);
 }
 
-h1, h2, h3 {
-  font-family: Georgia, serif;
-  color: var(--azul-escuro);
-  margin-bottom: 0.5rem;
+h1, h2, h3, h4 {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  color: var(--titulo);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin-bottom: var(--esp-3);
 }
+
+h1 { font-size: var(--texto-h1); }
+h2 { font-size: var(--texto-h2); }
+h3 { font-size: var(--texto-h3); font-weight: 600; }
+h4 { font-size: var(--texto-h4); font-weight: 600; }
+
+p { max-width: 68ch; }
 
 img {
   display: block;
@@ -37,232 +126,577 @@ img {
 
 ul { list-style: none; }
 
+/* link no texto fica sublinhado */
 a {
-  color: var(--azul);
+  color: var(--secundaria);
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+  transition: color var(--transicao-rapida);
+}
+
+a:hover { color: var(--titulo); }
+
+/* botão, logo e menu sem sublinhado */
+.botao,
+.marca,
+.menu a,
+.rodape-links a {
   text-decoration: none;
 }
 
-a:hover { text-decoration: underline; }
-
-/* contorno para quem navega pelo teclado */
-a:focus {
-  outline: 3px solid var(--laranja);
+/* foco do teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--anel);
   outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.botao:focus-visible { border-radius: var(--raio-botao); }
+
+/* foco amarelo no hero */
+.hero { --anel: var(--foco-escuro); }
+
+/* só aparece com Tab */
+.pular {
+  position: absolute;
+  left: var(--esp-4);
+  top: -100px;
+  z-index: 100;
+  padding: var(--esp-3) var(--esp-5);
+  background-color: var(--titulo);
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: var(--raio-botao);
+}
+
+.pular:focus {
+  top: var(--esp-2);
+  color: #FFFFFF;
 }
 
 .container {
-  max-width: 1000px;
+  width: 100%;
+  max-width: 72rem;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 var(--gutter);
 }
 
-.secao { padding: 2.5rem 0; }
+.secao { padding: var(--esp-secao) 0; }
 
-/* seletor de ID: esta seção é única e também é o destino do link "Destaques" */
-#destaques { background-color: #FFFFFF; }
+/* id porque só tem uma seção assim */
+#destaques { background-color: var(--fundo-alt); }
 
-/* ---------- Botões ---------- */
+/* botões */
 .botao {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--esp-2);
+  min-height: 48px;
+  padding: 0.75rem 1.75rem;
   border: 2px solid transparent;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background-color 0.3s, transform 0.3s;
+  border-radius: var(--raio-botao);
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-minimo);
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color var(--transicao-rapida),
+              border-color var(--transicao-rapida),
+              color var(--transicao-rapida),
+              transform var(--transicao-rapida),
+              box-shadow var(--transicao-rapida);
 }
 
 .botao:hover {
-  text-decoration: none;
-  transform: translateY(-2px);
+  transform: var(--elevar-botao);
+  box-shadow: var(--sombra-suave);
 }
 
-.botao:active { transform: translateY(1px); }
+.botao:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
 
-.azul {
-  background-color: var(--azul);
+/* principal (antes .laranja) */
+.botao.primario {
+  background-color: var(--primaria);
+  border-color: var(--primaria);
   color: #FFFFFF;
 }
 
-.azul:hover { background-color: var(--azul-escuro); }
-
-.laranja {
-  background-color: var(--laranja);
+.botao.primario:hover {
+  background-color: var(--primaria-hover);
+  border-color: var(--primaria-hover);
   color: #FFFFFF;
 }
 
-.branco {
+/* principal no hero (amarelo) */
+.botao.primario-escuro {
+  background-color: var(--primaria-escuro);
+  border-color: var(--primaria-escuro);
+  color: var(--titulo);
+}
+
+.botao.primario-escuro:hover {
+  background-color: var(--primaria-escuro-hover);
+  border-color: var(--primaria-escuro-hover);
+  color: var(--titulo);
+}
+
+/* secundário (antes .azul) */
+.botao.secundario {
+  background-color: transparent;
+  border-color: var(--secundaria);
+  color: var(--secundaria);
+}
+
+.botao.secundario:hover {
+  background-color: var(--secundaria);
+  color: #FFFFFF;
+}
+
+/* branco, pro fundo escuro */
+.botao.claro {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  color: var(--titulo);
+}
+
+.botao.claro:hover {
+  background-color: var(--azul-100);
+  border-color: var(--azul-100);
+  color: var(--titulo);
+}
+
+/* só contorno (antes .branco) */
+.botao.claro-contorno {
+  background-color: transparent;
   border-color: #FFFFFF;
   color: #FFFFFF;
 }
 
-.branco:hover {
+.botao.claro-contorno:hover {
   background-color: #FFFFFF;
-  color: var(--azul-escuro);
+  color: var(--titulo);
 }
 
-/* ---------- Cabeçalho ---------- */
-/* Flexbox: a barra tem uma linha só, com a marca e o menu nas pontas */
-.topo {
+/* tamanho e desativado */
+.botao.pequeno {
+  min-height: 44px;
+  padding: 0.6rem 1.25rem;
+}
+
+.botao[disabled],
+.botao[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* campos de formulário (ainda sem página de contato) */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+  margin-bottom: var(--esp-5);
+}
+
+.campo label {
+  font-weight: 700;
+  color: var(--titulo);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--esp-3) var(--esp-4);
+  border: 2px solid var(--borda-campo);
+  border-radius: var(--raio-campo);
   background-color: #FFFFFF;
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-minimo);
+  color: var(--texto);
+  transition: border-color var(--transicao-rapida);
+}
+
+.campo input:hover,
+.campo select:hover,
+.campo textarea:hover { border-color: var(--secundaria); }
+
+.campo-ajuda {
+  font-size: var(--texto-minimo);
+  color: var(--texto-suave);
+}
+
+/* erro sempre vem com texto junto */
+.campo-erro input,
+.campo-erro select,
+.campo-erro textarea {
+  border-color: var(--erro-borda);
+  background-color: var(--erro-fundo);
+}
+
+.campo-erro .campo-ajuda {
+  color: var(--erro-texto);
+  font-weight: 700;
+}
+
+/* cabeçalho */
+.topo {
+  background-color: var(--fundo);
   border-bottom: 1px solid var(--borda);
 }
 
+/* celular: logo em cima e menu embaixo.
+   de 768px pra cima fica tudo numa linha */
 .barra {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--esp-3);
+  padding-top: var(--esp-3);
+  padding-bottom: var(--esp-3);
 }
 
+/* logo à esquerda, 3rem a 3,25rem de altura */
 .marca {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-family: Georgia, serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--azul-escuro);
+  flex-shrink: 0;
 }
 
-.marca b { color: var(--laranja); }
+.marca-logo {
+  height: 3.25rem;
+  width: auto;
+}
 
-/* flex-wrap deixa os links quebrarem de linha quando não cabem no celular */
+nav[aria-label="Navegação principal"] { width: 100%; }
+
+/* quebra de linha no celular */
 .menu {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem 1rem;
+  gap: var(--esp-2) var(--esp-5);
 }
 
-.menu a {
+.menu a:not(.botao) {
+  display: inline-block;
+  padding: var(--esp-2) 0;
   color: var(--texto);
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s;
+  font-weight: 700;
+  border-bottom: 3px solid transparent;
+  transition: border-color var(--transicao-rapida), color var(--transicao-rapida);
 }
 
-.menu a:hover {
-  border-bottom-color: var(--laranja);
-  text-decoration: none;
+.menu a:not(.botao):hover {
+  color: var(--secundaria);
+  border-bottom-color: var(--marca);
 }
 
+/* página atual */
 .menu .ativo {
-  color: var(--azul);
-  border-bottom-color: var(--azul);
+  color: var(--secundaria);
+  border-bottom-color: var(--destaque);
 }
 
-/* ---------- Hero ---------- */
-/* o degrade escuro por cima da imagem garante o contraste do texto branco */
+/* botão ocupa a linha toda no celular */
+.menu li:last-child { flex: 1 0 100%; }
+
+.menu li:last-child .botao { width: 100%; }
+
+/* hero */
+/* degradê escuro pro texto branco ficar legível */
 .hero {
-  padding: 3rem 0;
+  padding: var(--esp-secao) 0;
   color: #FFFFFF;
-  background-image: linear-gradient(rgba(7, 40, 62, 0.75), rgba(7, 40, 62, 0.6)),
+  background-image: linear-gradient(rgba(15, 42, 82, 0.86), rgba(15, 42, 82, 0.74)),
                     url("../images/hero.svg");
   background-size: cover;
   background-position: center;
 }
 
 .hero h1 {
-  font-size: 2rem;
   color: #FFFFFF;
-  margin-bottom: 1rem;
+  margin-bottom: var(--esp-4);
+  max-width: 20ch;
 }
 
 .hero p {
   max-width: 55ch;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--esp-6);
+  font-size: var(--texto-lead);
+  line-height: 1.5;
+  color: var(--sobre-escuro);
 }
 
 .acoes {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--esp-4);
 }
 
-/* ---------- Lista de vantagens ---------- */
-.lista { margin-top: 1.5rem; }
+/* lista */
+.lista { margin-top: var(--esp-6); }
 
 .lista li {
-  padding: 0.5rem 0 0.5rem 1rem;
-  border-left: 4px solid var(--laranja);
-  margin-bottom: 0.75rem;
-  background-color: #FFFFFF;
+  padding: var(--esp-3) var(--esp-4);
+  border-left: 4px solid var(--destaque);
+  margin-bottom: var(--esp-3);
+  background-color: var(--fundo);
+  border-radius: 0 var(--raio-campo) var(--raio-campo) 0;
+  color: var(--texto-suave);
 }
 
-/* ---------- Cards de destino ---------- */
-/* Grid: os cards ocupam linhas e colunas, por isso Grid e não Flexbox */
-.cards {
+/* cards */
+/* grid porque tem linhas e colunas.
+   .card = index, .card-destino = destinos, mesmas regras */
+.cards,
+.galeria-destinos {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  gap: var(--esp-6);
 }
 
-.card {
+.cards { margin-top: var(--esp-6); }
+
+.card,
+.card-destino {
+  display: flex;
+  flex-direction: column;
   background-color: #FFFFFF;
   border: 1px solid var(--borda);
-  border-radius: 8px;
+  border-radius: var(--raio-card);
   overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform var(--transicao), box-shadow var(--transicao);
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(11, 45, 63, 0.2);
+.card:hover,
+.card-destino:hover {
+  transform: var(--elevar-card);
+  box-shadow: var(--sombra-suave);
 }
 
-.card img {
+.card img,
+.card-destino img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
 }
 
-.card-texto { padding: 1.25rem; }
+/* botão sempre embaixo do card */
+.card-texto,
+.conteudo-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--esp-5);
+}
+
+.card-texto h3,
+.conteudo-card h3 { font-size: var(--texto-h3); }
+
+.card-texto p:not(.preco),
+.conteudo-card p:not(.preco) { color: var(--texto-suave); }
+
+.card-texto p:last-of-type,
+.conteudo-card p:last-of-type { margin-bottom: var(--esp-4); }
+
+.card-texto .botao,
+.conteudo-card .botao {
+  align-self: flex-start;
+  margin-top: auto;
+}
 
 .preco {
-  margin: 1rem 0;
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: var(--azul-escuro);
+  margin: var(--esp-4) 0;
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h4);
+  font-weight: 800;
+  color: var(--titulo);
 }
 
-/* ---------- Rodapé ---------- */
+/* rodapé */
+/* fundo azul bebê. pra voltar pro escuro é só trocar estas variáveis */
 .rodape {
-  padding: 2rem 0;
-  background-color: #0B2D3F;
-  color: #DCE5EA;
+  --rodape-fundo: var(--azul-100);
+  --rodape-texto: var(--texto);
+  --rodape-titulo: var(--titulo);
+  --rodape-link: var(--secundaria);
+  --rodape-link-hover: var(--titulo);
+  --rodape-linha: rgba(15, 42, 82, 0.22);
+
+  padding: var(--esp-8) 0 0;
+  background-color: var(--rodape-fundo);
+  color: var(--rodape-texto);
 }
 
-.rodape h2 { color: #FFFFFF; }
+.rodape a { color: var(--rodape-link); }
+.rodape a:hover { color: var(--rodape-link-hover); }
 
-.rodape a { color: #FFFFFF; }
+.rodape h4 {
+  color: var(--rodape-titulo);
+  margin-bottom: var(--esp-4);
+}
 
-.rodape a:visited { color: #C3D3DB; }
+.rodape-grade {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--esp-7);
+  padding-bottom: var(--esp-7);
+}
+
+.rodape-marca {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-4);
+}
+
+/* monograma na placa branca (guia) */
+.rodape-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  background-color: #FFFFFF;
+  border-radius: var(--raio-botao);
+  padding: 12px 16px;
+}
+
+.rodape-logo img {
+  height: 40px;
+  width: auto;
+}
+
+.rodape-marca p { max-width: 32ch; }
+
+.rodape-links,
+.rodape-contato {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-3);
+}
+
+.rodape-links a,
+.rodape-contato a {
+  width: fit-content;
+  font-weight: 700;
+}
+
+.rodape-links a {
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transicao-rapida), color var(--transicao-rapida);
+}
+
+.rodape-links a:hover { border-bottom-color: var(--destaque); }
+
+/* linha tracejada com avião + copyright */
+.rodape-base {
+  padding: var(--esp-5) 0 var(--esp-6);
+  text-align: center;
+}
+
+.rodape-rota {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-3);
+  margin-bottom: var(--esp-5);
+  color: var(--destaque);
+}
+
+.rodape-rota::before,
+.rodape-rota::after {
+  content: "";
+  flex: 1;
+  border-top: 2px dashed var(--rodape-linha);
+}
+
+.rodape-rota svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  transform: rotate(90deg);
+}
 
 .creditos {
-  margin-top: 1rem;
-  font-size: 0.875rem;
+  max-width: none;
+  text-align: center;
+  font-size: var(--texto-minimo);
+  color: var(--rodape-texto);
 }
 
-/* ---------- Telas maiores (Media Queries) ---------- */
-@media (min-width: 600px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .cards {
+/* media queries */
+/* 640, 768 e 1024px */
+@media (min-width: 640px) {
+  .cards,
+  .galeria-destinos {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@media (min-width: 900px) {
-  .hero {
-    padding: 5rem 0;
+  .rodape-grade {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .cards {
+  /* botão volta ao tamanho normal */
+  .menu li:last-child { flex: 0 0 auto; margin-left: auto; }
+  .menu li:last-child .botao { width: auto; }
+}
+
+/* tablet: navbar numa linha só e fixa */
+@media (min-width: 768px) {
+  .topo {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .barra {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  nav[aria-label="Navegação principal"] { width: auto; }
+
+  .menu { flex-wrap: nowrap; }
+
+  .menu li:last-child { margin-left: var(--esp-2); }
+
+  .rodape-grade {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}
+
+/* desktop: 3 colunas */
+@media (min-width: 1024px) {
+  .menu { gap: var(--esp-2) var(--esp-6); }
+
+  .cards,
+  .galeria-destinos {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* menos animação */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+
+  .botao:hover,
+  .card:hover,
+  .card-destino:hover {
+    transform: none;
   }
 }

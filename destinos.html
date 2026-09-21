@@ -3,42 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AirFly</title>
+    <title>AirFly — Destinos</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/destinos.css" />
   </head>
   <body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
     <header class="topo">
       <div class="container barra">
-        <a class="marca" href="index.html">
-          <img src="images/logo.svg" alt="" width="40" height="40" />
-          <span>Air<b>Fly</b></span>
+        <a class="marca" href="index.html" aria-label="AirFly — página inicial">
+          <img class="marca-logo" src="images/logo-horizontal.png" alt="AirFly Travel Agency" width="159" height="52">
         </a>
 
         <nav aria-label="Navegação principal">
           <ul class="menu">
-            <li>
-              <a href="index.html">Início</a>
-            </li>
-            <li><a href="#destaques">Destaques</a></li>
+            <li><a href="index.html">Início</a></li>
             <li><a href="sobre.html">Sobre</a></li>
-            <li>
-              <a class="ativo" href="destinos.html" aria-current="page"
-                >Destinos</a
-              >
-            </li>
-            <li><a class="botao laranja" href="contato.html">Orçamento</a></li>
+            <li><a href="destinos.html" class="ativo" aria-current="page">Destinos</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a class="botao primario pequeno" href="contato.html">Pedir orçamento</a></li>
           </ul>
         </nav>
       </div>
     </header>
-    <main>
+    <main id="conteudo">
       <section class="hero">
         <div class="container">
           <h1>Escolha o seu destino</h1>
         </div>
       </section>
-      <section class="galeria-destinos">
+      <section class="secao">
+        <div class="container galeria-destinos">
         <article class="card-destino">
           <picture>
             <img src="./assets/disney.jpg" alt="Castelo da Disney, Orlando" />
@@ -47,7 +47,7 @@
             <h3>Orlando, EUA</h3>
             <p class="preco">A partir de R$ 5.400,00</p>
             <p>Duração: 2 dias</p>
-            <a class="botao azul" href="destinos.html">Ver pacote</a>
+            <a class="botao secundario" href="destinos.html">Ver pacote</a>
           </div>
         </article>
         <article class="card-destino">
@@ -58,7 +58,7 @@
             <h3>Zermatt, Suíça</h3>
             <p class="preco">A partir de R$ 4.700,00</p>
             <p>Duração: 3 dias</p>
-            <a class="botao azul" href="destinos.html">Ver pacote</a>
+            <a class="botao secundario" href="destinos.html">Ver pacote</a>
           </div>
         </article>
         <article class="card-destino">
@@ -72,7 +72,7 @@
             <h3>Cairo, Egito</h3>
             <p class="preco">A partir de R$ 3.900,00</p>
             <p>Duração: 3 dias</p>
-            <a class="botao azul" href="destinos.html">Ver pacote</a>
+            <a class="botao secundario" href="destinos.html">Ver pacote</a>
           </div>
         </article>
         <article class="card-destino">
@@ -86,7 +86,7 @@
             <h3>Recife, Brasil</h3>
             <p class="preco">A partir de R$ 770,00</p>
             <p>Duração: 4 dias</p>
-            <a class="botao azul" href="destinos.html">Ver pacote</a>
+            <a class="botao secundario" href="destinos.html">Ver pacote</a>
           </div>
         </article>
         <article class="card-destino">
@@ -100,7 +100,7 @@
             <h3>Autódromo de Interlagos, São Paulo</h3>
             <p class="preco">A partir de R$ 270,00</p>
             <p>Duração: 1 dia</p>
-            <a class="botao azul" href="destinos.html">Ver pacote</a>
+            <a class="botao secundario" href="destinos.html">Ver pacote</a>
           </div>
         </article>
         <article class="card-destino">
@@ -111,22 +111,49 @@
             <h3>Paris, França</h3>
             <p class="preco">A partir de R$ 2.400,00</p>
             <p>Duração: 1 dia</p>
-            <a class="botao azul" href="destinos.html">Ver pacote</a>
+            <a class="botao secundario" href="destinos.html">Ver pacote</a>
           </div>
         </article>
+        </div>
       </section>
     </main>
     <footer class="rodape">
       <div class="container">
-        <h2>AirFly</h2>
-        <p>Rua das Alagoas, 320 — Maceió/AL · (82) 3333-4444</p>
-        <p>
-          <a href="mailto:contato@airfly.com.br">contato@airfly.com.br</a> ·
-          Segunda a sexta, das 9h às 18h
-        </p>
-        <p class="creditos">
-          © 2026 AirFly · Projeto acadêmico de Desenvolvimento Web.
-        </p>
+        <div class="rodape-grade">
+
+          <div class="rodape-marca">
+            <div class="rodape-logo">
+              <img src="images/logo-monogram.png" alt="AirFly Travel Agency" width="80" height="40">
+            </div>
+            <p>Pacotes de viagem para quem quer praticidade, do primeiro orçamento ao embarque.</p>
+          </div>
+
+          <nav aria-label="Links do rodapé">
+            <h4>Navegue</h4>
+            <div class="rodape-links">
+              <a href="index.html">Início</a>
+              <a href="sobre.html">Sobre</a>
+              <a href="destinos.html">Destinos</a>
+              <a href="contato.html">Contato</a>
+            </div>
+          </nav>
+
+          <div class="rodape-contato">
+            <h4>Fale com a gente</h4>
+            <p>Rua das Alagoas, 320 — Maceió/AL</p>
+            <a href="tel:+558233334444">(82) 3333-4444</a>
+            <a href="mailto:contato@airfly.com.br">contato@airfly.com.br</a>
+            <p>Segunda a sexta, das 9h às 18h</p>
+          </div>
+
+        </div>
+
+        <div class="rodape-base">
+          <div class="rodape-rota" aria-hidden="true">
+             <img src="images/aviao-icon.png" alt="" width="24" height="24">
+          </div>
+          <p class="creditos">© 2026 AirFly Travel Agency · Projeto acadêmico de Desenvolvimento Web.</p>
+        </div>
       </div>
     </footer>
   </body>

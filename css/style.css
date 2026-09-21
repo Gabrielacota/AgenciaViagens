@@ -3,19 +3,19 @@
 /* variáveis */
 :root {
   /* cores do guia visual */
-  --azul-900: #0F2A52; /* títulos e hero */
-  --azul-700: #1B4A8F; /* links */
-  --azul-500: #235AAB; /* azul da logo */
-  --azul-100: #D6E4F7; /* azul bebê */
-  --azul-50:  #EEF4FC; /* fundo das tags */
+  --azul-900: #0f2a52; /* títulos e hero */
+  --azul-700: #1b4a8f; /* links */
+  --azul-500: #235aab; /* azul da logo */
+  --azul-100: #d6e4f7; /* azul bebê */
+  --azul-50: #eef4fc; /* fundo das tags */
 
-  --vermelho-700: #B81C1C; /* vermelho escuro */
-  --vermelho-600: #D92323; /* vermelho do guia (não usei em botão) */
-  --vermelho-500: #FF3131; /* vermelho da logo, só enfeite */
-  --vermelho-300: #FF8A8A; /* vermelho claro p/ fundo escuro */
+  --vermelho-700: #b81c1c; /* vermelho escuro */
+  --vermelho-600: #d92323; /* vermelho do guia (não usei em botão) */
+  --vermelho-500: #ff3131; /* vermelho da logo, só enfeite */
+  --vermelho-300: #ff8a8a; /* vermelho claro p/ fundo escuro */
 
-  --amarelo-400: #FFC13B; /* hover do amarelo */
-  --amarelo-300: #FFD166; /* botão do hero e foco */
+  --amarelo-400: #ffc13b; /* hover do amarelo */
+  --amarelo-300: #ffd166; /* botão do hero e foco */
 
   /* nomes por função: mudando aqui muda o site todo */
   --primaria: var(--azul-500); /* botão principal */
@@ -26,19 +26,19 @@
   --marca: var(--azul-500);
   --destaque: var(--vermelho-500); /* vermelho parece alerta */
   --titulo: var(--azul-900);
-  --texto: #1F2937;
-  --texto-suave: #4B5563;
-  --fundo: #FFFFFF;
-  --fundo-alt: #F4F7FB; /* seções alternadas */
-  --borda: #D5DEEA; /* bordas de card */
-  --borda-campo: #6B7280; /* borda do input */
-  --sobre-escuro: #E6EEFB; /* texto no fundo escuro */
-  --foco: #235AAB; /* foco */
+  --texto: #1f2937;
+  --texto-suave: #4b5563;
+  --fundo: #ffffff;
+  --fundo-alt: #f4f7fb; /* seções alternadas */
+  --borda: #d5deea; /* bordas de card */
+  --borda-campo: #6b7280; /* borda do input */
+  --sobre-escuro: #e6eefb; /* texto no fundo escuro */
+  --foco: #235aab; /* foco */
   --foco-escuro: var(--amarelo-300); /* foco no fundo escuro */
 
-  --erro-fundo: #FDEAEA;
-  --erro-texto: #7A1212;
-  --erro-borda: #B3261E;
+  --erro-fundo: #fdeaea;
+  --erro-texto: #7a1212;
+  --erro-borda: #b3261e;
 
   /* fontes */
   --fonte-titulo: "Bricolage Grotesque", Georgia, serif;
@@ -103,7 +103,10 @@ body {
   background-color: var(--fundo);
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--fonte-titulo);
   font-weight: 800;
   color: var(--titulo);
@@ -112,19 +115,33 @@ h1, h2, h3, h4 {
   margin-bottom: var(--esp-3);
 }
 
-h1 { font-size: var(--texto-h1); }
-h2 { font-size: var(--texto-h2); }
-h3 { font-size: var(--texto-h3); font-weight: 600; }
-h4 { font-size: var(--texto-h4); font-weight: 600; }
+h1 {
+  font-size: var(--texto-h1);
+}
+h2 {
+  font-size: var(--texto-h2);
+}
+h3 {
+  font-size: var(--texto-h3);
+  font-weight: 600;
+}
+h4 {
+  font-size: var(--texto-h4);
+  font-weight: 600;
+}
 
-p { max-width: 68ch; }
+p {
+  max-width: 68ch;
+}
 
 img {
   display: block;
   max-width: 100%;
 }
 
-ul { list-style: none; }
+ul {
+  list-style: none;
+}
 
 /* link no texto fica sublinhado */
 a {
@@ -135,7 +152,9 @@ a {
   transition: color var(--transicao-rapida);
 }
 
-a:hover { color: var(--titulo); }
+a:hover {
+  color: var(--titulo);
+}
 
 /* botão, logo e menu sem sublinhado */
 .botao,
@@ -156,10 +175,14 @@ textarea:focus-visible {
   border-radius: 4px;
 }
 
-.botao:focus-visible { border-radius: var(--raio-botao); }
+.botao:focus-visible {
+  border-radius: var(--raio-botao);
+}
 
 /* foco amarelo no hero */
-.hero { --anel: var(--foco-escuro); }
+.hero {
+  --anel: var(--foco-escuro);
+}
 
 /* só aparece com Tab */
 .pular {
@@ -169,14 +192,14 @@ textarea:focus-visible {
   z-index: 100;
   padding: var(--esp-3) var(--esp-5);
   background-color: var(--titulo);
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 700;
   border-radius: var(--raio-botao);
 }
 
 .pular:focus {
   top: var(--esp-2);
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .container {
@@ -186,10 +209,14 @@ textarea:focus-visible {
   padding: 0 var(--gutter);
 }
 
-.secao { padding: var(--esp-secao) 0; }
+.secao {
+  padding: var(--esp-secao) 0;
+}
 
 /* id porque só tem uma seção assim */
-#destaques { background-color: var(--fundo-alt); }
+#destaques {
+  background-color: var(--fundo-alt);
+}
 
 /* botões */
 .botao {
@@ -207,11 +234,12 @@ textarea:focus-visible {
   line-height: 1;
   text-align: center;
   cursor: pointer;
-  transition: background-color var(--transicao-rapida),
-              border-color var(--transicao-rapida),
-              color var(--transicao-rapida),
-              transform var(--transicao-rapida),
-              box-shadow var(--transicao-rapida);
+  transition:
+    background-color var(--transicao-rapida),
+    border-color var(--transicao-rapida),
+    color var(--transicao-rapida),
+    transform var(--transicao-rapida),
+    box-shadow var(--transicao-rapida);
 }
 
 .botao:hover {
@@ -228,13 +256,13 @@ textarea:focus-visible {
 .botao.primario {
   background-color: var(--primaria);
   border-color: var(--primaria);
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .botao.primario:hover {
   background-color: var(--primaria-hover);
   border-color: var(--primaria-hover);
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* principal no hero (amarelo) */
@@ -259,13 +287,13 @@ textarea:focus-visible {
 
 .botao.secundario:hover {
   background-color: var(--secundaria);
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* branco, pro fundo escuro */
 .botao.claro {
-  background-color: #FFFFFF;
-  border-color: #FFFFFF;
+  background-color: #ffffff;
+  border-color: #ffffff;
   color: var(--titulo);
 }
 
@@ -278,12 +306,12 @@ textarea:focus-visible {
 /* só contorno (antes .branco) */
 .botao.claro-contorno {
   background-color: transparent;
-  border-color: #FFFFFF;
-  color: #FFFFFF;
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 .botao.claro-contorno:hover {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: var(--titulo);
 }
 
@@ -321,7 +349,7 @@ textarea:focus-visible {
   padding: var(--esp-3) var(--esp-4);
   border: 2px solid var(--borda-campo);
   border-radius: var(--raio-campo);
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   font-family: var(--fonte-texto);
   font-size: var(--texto-minimo);
   color: var(--texto);
@@ -330,7 +358,9 @@ textarea:focus-visible {
 
 .campo input:hover,
 .campo select:hover,
-.campo textarea:hover { border-color: var(--secundaria); }
+.campo textarea:hover {
+  border-color: var(--secundaria);
+}
 
 .campo-ajuda {
   font-size: var(--texto-minimo);
@@ -379,7 +409,9 @@ textarea:focus-visible {
   width: auto;
 }
 
-nav[aria-label="Navegação principal"] { width: 100%; }
+nav[aria-label="Navegação principal"] {
+  width: 100%;
+}
 
 /* quebra de linha no celular */
 .menu {
@@ -395,7 +427,9 @@ nav[aria-label="Navegação principal"] { width: 100%; }
   color: var(--texto);
   font-weight: 700;
   border-bottom: 3px solid transparent;
-  transition: border-color var(--transicao-rapida), color var(--transicao-rapida);
+  transition:
+    border-color var(--transicao-rapida),
+    color var(--transicao-rapida);
 }
 
 .menu a:not(.botao):hover {
@@ -410,23 +444,28 @@ nav[aria-label="Navegação principal"] { width: 100%; }
 }
 
 /* botão ocupa a linha toda no celular */
-.menu li:last-child { flex: 1 0 100%; }
+.menu li:last-child {
+  flex: 1 0 100%;
+}
 
-.menu li:last-child .botao { width: 100%; }
+.menu li:last-child .botao {
+  width: 100%;
+}
 
 /* hero */
 /* degradê escuro pro texto branco ficar legível */
 .hero {
   padding: var(--esp-secao) 0;
-  color: #FFFFFF;
-  background-image: linear-gradient(rgba(15, 42, 82, 0.86), rgba(15, 42, 82, 0.74)),
-                    url("../images/hero.svg");
+  color: #ffffff;
+  background-image:
+    linear-gradient(rgba(15, 42, 82, 0.86), rgba(15, 42, 82, 0.74)),
+    url("../images/hero.svg");
   background-size: cover;
   background-position: center;
 }
 
 .hero h1 {
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: var(--esp-4);
   max-width: 20ch;
 }
@@ -446,7 +485,9 @@ nav[aria-label="Navegação principal"] { width: 100%; }
 }
 
 /* lista */
-.lista { margin-top: var(--esp-6); }
+.lista {
+  margin-top: var(--esp-6);
+}
 
 .lista li {
   padding: var(--esp-3) var(--esp-4);
@@ -467,17 +508,21 @@ nav[aria-label="Navegação principal"] { width: 100%; }
   gap: var(--esp-6);
 }
 
-.cards { margin-top: var(--esp-6); }
+.cards {
+  margin-top: var(--esp-6);
+}
 
 .card,
 .card-destino {
   display: flex;
   flex-direction: column;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 1px solid var(--borda);
   border-radius: var(--raio-card);
   overflow: hidden;
-  transition: transform var(--transicao), box-shadow var(--transicao);
+  transition:
+    transform var(--transicao),
+    box-shadow var(--transicao);
 }
 
 .card:hover,
@@ -503,13 +548,19 @@ nav[aria-label="Navegação principal"] { width: 100%; }
 }
 
 .card-texto h3,
-.conteudo-card h3 { font-size: var(--texto-h3); }
+.conteudo-card h3 {
+  font-size: var(--texto-h3);
+}
 
 .card-texto p:not(.preco),
-.conteudo-card p:not(.preco) { color: var(--texto-suave); }
+.conteudo-card p:not(.preco) {
+  color: var(--texto-suave);
+}
 
 .card-texto p:last-of-type,
-.conteudo-card p:last-of-type { margin-bottom: var(--esp-4); }
+.conteudo-card p:last-of-type {
+  margin-bottom: var(--esp-4);
+}
 
 .card-texto .botao,
 .conteudo-card .botao {
@@ -523,6 +574,18 @@ nav[aria-label="Navegação principal"] { width: 100%; }
   font-size: var(--texto-h4);
   font-weight: 800;
   color: var(--titulo);
+}
+
+/* tag de categoria do pacote (ex.: Praia, Aventura) — 16px é o mínimo do site */
+.categoria {
+  display: inline-block;
+  background-color: var(--azul-50);
+  color: var(--titulo);
+  margin: 0 var(--esp-2) var(--esp-2) 0;
+  padding: var(--esp-1) var(--esp-3);
+  border-radius: var(--raio-campo);
+  font-size: var(--texto-minimo);
+  font-weight: 700;
 }
 
 /* rodapé */
@@ -540,8 +603,12 @@ nav[aria-label="Navegação principal"] { width: 100%; }
   color: var(--rodape-texto);
 }
 
-.rodape a { color: var(--rodape-link); }
-.rodape a:hover { color: var(--rodape-link-hover); }
+.rodape a {
+  color: var(--rodape-link);
+}
+.rodape a:hover {
+  color: var(--rodape-link-hover);
+}
 
 .rodape h4 {
   color: var(--rodape-titulo);
@@ -567,7 +634,7 @@ nav[aria-label="Navegação principal"] { width: 100%; }
   align-items: center;
   justify-content: center;
   width: fit-content;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: var(--raio-botao);
   padding: 12px 16px;
 }
@@ -577,7 +644,9 @@ nav[aria-label="Navegação principal"] { width: 100%; }
   width: auto;
 }
 
-.rodape-marca p { max-width: 32ch; }
+.rodape-marca p {
+  max-width: 32ch;
+}
 
 .rodape-links,
 .rodape-contato {
@@ -594,10 +663,14 @@ nav[aria-label="Navegação principal"] { width: 100%; }
 
 .rodape-links a {
   border-bottom: 2px solid transparent;
-  transition: border-color var(--transicao-rapida), color var(--transicao-rapida);
+  transition:
+    border-color var(--transicao-rapida),
+    color var(--transicao-rapida);
 }
 
-.rodape-links a:hover { border-bottom-color: var(--destaque); }
+.rodape-links a:hover {
+  border-bottom-color: var(--destaque);
+}
 
 /* linha tracejada com avião + copyright */
 .rodape-base {
@@ -647,8 +720,13 @@ nav[aria-label="Navegação principal"] { width: 100%; }
   }
 
   /* botão volta ao tamanho normal */
-  .menu li:last-child { flex: 0 0 auto; margin-left: auto; }
-  .menu li:last-child .botao { width: auto; }
+  .menu li:last-child {
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+  .menu li:last-child .botao {
+    width: auto;
+  }
 }
 
 /* tablet: navbar numa linha só e fixa */
@@ -665,11 +743,17 @@ nav[aria-label="Navegação principal"] { width: 100%; }
     justify-content: space-between;
   }
 
-  nav[aria-label="Navegação principal"] { width: auto; }
+  nav[aria-label="Navegação principal"] {
+    width: auto;
+  }
 
-  .menu { flex-wrap: nowrap; }
+  .menu {
+    flex-wrap: nowrap;
+  }
 
-  .menu li:last-child { margin-left: var(--esp-2); }
+  .menu li:last-child {
+    margin-left: var(--esp-2);
+  }
 
   .rodape-grade {
     grid-template-columns: 1.4fr 1fr 1fr;
@@ -678,7 +762,9 @@ nav[aria-label="Navegação principal"] { width: 100%; }
 
 /* desktop: 3 colunas */
 @media (min-width: 1024px) {
-  .menu { gap: var(--esp-2) var(--esp-6); }
+  .menu {
+    gap: var(--esp-2) var(--esp-6);
+  }
 
   .cards,
   .galeria-destinos {

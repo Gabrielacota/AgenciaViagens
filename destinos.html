@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AirFly — Destinos</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/destinos.css" />
   </head>
   <body>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -17,16 +19,30 @@
     <header class="topo">
       <div class="container barra">
         <a class="marca" href="index.html" aria-label="AirFly — página inicial">
-          <img class="marca-logo" src="images/logo-horizontal.png" alt="AirFly Travel Agency" width="159" height="52">
+          <img
+            class="marca-logo"
+            src="images/logo-horizontal.png"
+            alt="AirFly Travel Agency"
+            width="159"
+            height="52"
+          />
         </a>
 
         <nav aria-label="Navegação principal">
           <ul class="menu">
             <li><a href="index.html">Início</a></li>
             <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="destinos.html" class="ativo" aria-current="page">Destinos</a></li>
+            <li>
+              <a href="destinos.html" class="ativo" aria-current="page"
+                >Destinos</a
+              >
+            </li>
             <li><a href="contato.html">Contato</a></li>
-            <li><a class="botao primario pequeno" href="contato.html">Pedir orçamento</a></li>
+            <li>
+              <a class="botao primario pequeno" href="contato.html"
+                >Pedir orçamento</a
+              >
+            </li>
           </ul>
         </nav>
       </div>
@@ -39,93 +55,144 @@
       </section>
       <section class="secao">
         <div class="container galeria-destinos">
-        <article class="card-destino">
-          <picture>
-            <img src="./assets/disney.jpg" alt="Castelo da Disney, Orlando" />
-          </picture>
-          <div class="conteudo-card">
-            <h3>Orlando, EUA</h3>
-            <p class="preco">A partir de R$ 5.400,00</p>
-            <p>Duração: 2 dias</p>
-            <a class="botao secundario" href="destinos.html">Ver pacote</a>
-          </div>
-        </article>
-        <article class="card-destino">
-          <picture>
-            <img src="./assets/zermatt.jpg" alt="Esqui na neve, Zermatt" />
-          </picture>
-          <div class="conteudo-card">
-            <h3>Zermatt, Suíça</h3>
-            <p class="preco">A partir de R$ 4.700,00</p>
-            <p>Duração: 3 dias</p>
-            <a class="botao secundario" href="destinos.html">Ver pacote</a>
-          </div>
-        </article>
-        <article class="card-destino">
-          <picture>
+          <article class="card-destino">
+            <img src="assets/maragogi.png" alt="Praia de Maragogi" />
+            <div class="card-texto">
+              <h3>Maragogi, Alagoas</h3>
+              <p>
+                Cinco dias no litoral alagoano, com passeio de catamarã pelas
+                piscinas naturais.
+              </p>
+              <p class="preco">A partir de R$ 2.480</p>
+              <a class="botao secundario" href="contato.html">Saiba mais</a>
+            </div>
+          </article>
+
+          <article class="card">
             <img
-              src="./assets/cairo.png"
-              alt="Prédio rosa do apartamento, Cairo"
+              src="assets/chapada_diamantina.jpg"
+              alt="Lago da cachoeira da chapada diamantina"
             />
-          </picture>
-          <div class="conteudo-card">
-            <h3>Cairo, Egito</h3>
-            <p class="preco">A partir de R$ 3.900,00</p>
-            <p>Duração: 3 dias</p>
-            <a class="botao secundario" href="destinos.html">Ver pacote</a>
-          </div>
-        </article>
-        <article class="card-destino">
-          <picture>
-            <img
-              src="./assets/boa_viagem.jpg"
-              alt="Praia de Boa Viagem, Recife"
-            />
-          </picture>
-          <div class="conteudo-card">
-            <h3>Recife, Brasil</h3>
-            <p class="preco">A partir de R$ 770,00</p>
-            <p>Duração: 4 dias</p>
-            <a class="botao secundario" href="destinos.html">Ver pacote</a>
-          </div>
-        </article>
-        <article class="card-destino">
-          <picture>
-            <img
-              src="./assets/lollapalooza.jpg"
-              alt="Lollapalooza, Interlagos"
-            />
-          </picture>
-          <div class="conteudo-card">
-            <h3>Autódromo de Interlagos, São Paulo</h3>
-            <p class="preco">A partir de R$ 270,00</p>
-            <p>Duração: 1 dia</p>
-            <a class="botao secundario" href="destinos.html">Ver pacote</a>
-          </div>
-        </article>
-        <article class="card-destino">
-          <picture>
-            <img src="./assets/paris.jpg" alt="Torre Eiffel e sakura, Paris" />
-          </picture>
-          <div class="conteudo-card">
-            <h3>Paris, França</h3>
-            <p class="preco">A partir de R$ 2.400,00</p>
-            <p>Duração: 1 dia</p>
-            <a class="botao secundario" href="destinos.html">Ver pacote</a>
-          </div>
-        </article>
+            <div class="card-texto">
+              <h3>Chapada Diamantina, Bahia</h3>
+              <p>
+                Seis dias de trilhas guiadas até cachoeiras e mirantes, com
+                hospedagem em Lençóis.
+              </p>
+              <p class="preco">A partir de R$ 2.960</p>
+              <a class="botao secundario" href="contato.html">Saiba mais</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="assets/lisboa.jpeg" alt="Bonde no vilarejo de Lisboa" />
+            <div class="card-texto">
+              <h3>Lisboa, Portugal</h3>
+              <p>
+                Oito dias entre bairros históricos e bondinhos, com hotel na
+                Baixa e city tour.
+              </p>
+              <p class="preco">A partir de R$ 8.420</p>
+              <a class="botao secundario" href="contato.html">Saiba mais</a>
+            </div>
+          </article>
+          <article class="card-destino">
+            <picture>
+              <img src="./assets/disney.jpg" alt="Castelo da Disney, Orlando" />
+            </picture>
+            <div class="conteudo-card">
+              <h3>Orlando, EUA</h3>
+              <p class="preco">A partir de R$ 5.400,00</p>
+              <p>Duração: 2 dias</p>
+              <a class="botao secundario" href="contato.html">Saiba mais</a>
+            </div>
+          </article>
+          <article class="card-destino">
+            <picture>
+              <img src="./assets/zermatt.jpg" alt="Esqui na neve, Zermatt" />
+            </picture>
+            <div class="conteudo-card">
+              <h3>Zermatt, Suíça</h3>
+              <p class="preco">A partir de R$ 4.700,00</p>
+              <p>Duração: 3 dias</p>
+              <a class="botao secundario" href="contato.html">Saiba mais</a>
+            </div>
+          </article>
+          <article class="card-destino">
+            <picture>
+              <img
+                src="./assets/cairo.png"
+                alt="Prédio rosa do apartamento, Cairo"
+              />
+            </picture>
+            <div class="conteudo-card">
+              <h3>Cairo, Egito</h3>
+              <p class="preco">A partir de R$ 3.900,00</p>
+              <p>Duração: 3 dias</p>
+              <a class="botao secundario" href="contato.html">Saiba mais</a>
+            </div>
+          </article>
+          <article class="card-destino">
+            <picture>
+              <img
+                src="./assets/boa_viagem.jpg"
+                alt="Praia de Boa Viagem, Recife"
+              />
+            </picture>
+            <div class="conteudo-card">
+              <h3>Recife, Brasil</h3>
+              <p class="preco">A partir de R$ 770,00</p>
+              <p>Duração: 4 dias</p>
+              <a class="botao secundario" href="contato.html">Saiba mais</a>
+            </div>
+          </article>
+          <article class="card-destino">
+            <picture>
+              <img
+                src="./assets/lollapalooza.jpg"
+                alt="Lollapalooza, Interlagos"
+              />
+            </picture>
+            <div class="conteudo-card">
+              <h3>Autódromo de Interlagos, São Paulo</h3>
+              <p class="preco">A partir de R$ 270,00</p>
+              <p>Duração: 1 dia</p>
+              <a class="botao secundario" href="contato.html">Saiba mais</a>
+            </div>
+          </article>
+          <article class="card-destino">
+            <picture>
+              <img
+                src="./assets/paris.jpg"
+                alt="Torre Eiffel e sakura, Paris"
+              />
+            </picture>
+            <div class="conteudo-card">
+              <h3>Paris, França</h3>
+              <p class="preco">A partir de R$ 2.400,00</p>
+              <p>Duração: 1 dia</p>
+              <a class="botao secundario" href="contato.html">Saiba mais</a>
+            </div>
+          </article>
         </div>
       </section>
     </main>
     <footer class="rodape">
       <div class="container">
         <div class="rodape-grade">
-
           <div class="rodape-marca">
             <div class="rodape-logo">
-              <img src="images/logo-monogram.png" alt="AirFly Travel Agency" width="80" height="40">
+              <img
+                src="images/logo-monogram.png"
+                alt="AirFly Travel Agency"
+                width="80"
+                height="40"
+              />
             </div>
-            <p>Pacotes de viagem para quem quer praticidade, do primeiro orçamento ao embarque.</p>
+            <p>
+              Pacotes de viagem para quem quer praticidade, do primeiro
+              orçamento ao embarque.
+            </p>
           </div>
 
           <nav aria-label="Links do rodapé">
@@ -145,14 +212,16 @@
             <a href="mailto:contato@airfly.com.br">contato@airfly.com.br</a>
             <p>Segunda a sexta, das 9h às 18h</p>
           </div>
-
         </div>
 
         <div class="rodape-base">
           <div class="rodape-rota" aria-hidden="true">
-             <img src="images/aviao-icon.png" alt="" width="24" height="24">
+            <img src="images/aviao-icon.png" alt="" width="24" height="24" />
           </div>
-          <p class="creditos">© 2026 AirFly Travel Agency · Projeto acadêmico de Desenvolvimento Web.</p>
+          <p class="creditos">
+            © 2026 AirFly Travel Agency · Projeto acadêmico de Desenvolvimento
+            Web.
+          </p>
         </div>
       </div>
     </footer>

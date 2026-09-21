@@ -1,52 +1,17 @@
-.galeria-destinos {
-  display: grid;
-  gap: 20px;
-  margin: 20px auto;
-  max-width: 1000px;
-}
+/* AirFly — estilos específicos da página de Destinos
+   Depende das variáveis e componentes definidos em style.css.
+   A grade e os cards (.galeria-destinos, .card-destino, .conteudo-card)
+   compartilham as regras dos cards da página inicial, em style.css;
+   aqui ficam só os estilos usados apenas nesta página. */
 
-.card-destino {
-  border-radius: 20px;
-  border: 3px solid #eee;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.card-destino img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-}
-
-.card-destino:hover {
-  transform: translateY(-10px);
-}
-
-.conteudo-card {
-  overflow: hidden;
-  padding: 20px;
-}
-
+/* tag de categoria do pacote (ex.: Praia, Aventura) — 16px é o mínimo do site */
 .categoria {
   display: inline-block;
-  background-color: rgb(43, 181, 167);
-  color: #eee;
-  margin: 5px;
-  padding: 10px;
-  border-radius: 20px;
-  font-size: x-small;
-}
-
-@media (min-width: 768px) {
-  .galeria-destinos {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .galeria-destinos {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  background-color: var(--azul-50);
+  color: var(--titulo);
+  margin: 0 var(--esp-2) var(--esp-2) 0;
+  padding: var(--esp-1) var(--esp-3);
+  border-radius: var(--raio-campo);
+  font-size: var(--texto-minimo);
+  font-weight: 700;
 }

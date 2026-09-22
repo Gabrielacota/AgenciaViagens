@@ -1,0 +1,171 @@
+.contato {
+	padding: 3rem 1rem 2rem;
+	text-align: center;
+	background-image: linear-gradient(rgba(199, 221, 236, 0.75), rgba(21, 111, 172, 0.6)),
+                    url("../images/hero.svg");
+    background-size: contain;
+    background-position: center;
+	border-bottom: 1px solid var(--borda);
+}
+
+.titulo {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.titulo h1 {
+	margin-bottom: 0.75rem;
+	font-size: 2rem;
+	color: #ffffff;
+}
+
+.titulo p {
+	max-width: 55ch;
+	margin: 0 auto;
+	color: var(--sobre-escuro);
+}
+
+.conteudo {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2rem;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 2rem 1rem 3rem;
+}
+
+form,
+.informacoes {
+	background-color: #FFFFFF;
+	border: 1px solid var(--borda);
+	border-radius: 8px;
+	padding: 1.5rem;
+	box-shadow: 0 4px 12px rgba(11, 45, 63, 0.08);
+}
+
+form {
+	display: grid;
+	gap: 1rem;
+}
+
+.campo {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
+label,
+legend {
+	font-weight: bold;
+	color: var(--titulo);
+}
+
+input,
+select,
+textarea {
+	width: 100%;
+	padding: 0.75rem;
+	border: 1px solid var(--borda);
+	border-radius: 6px;
+	color: var(--texto);
+	background-color: #FFFFFF;
+	font: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 3px solid rgba(35, 90, 171, 0.25);
+	border-color: var(--primaria);
+}
+
+textarea {
+	min-height: 130px;
+	resize: vertical;
+}
+
+fieldset {
+	display: grid;
+	gap: 0.65rem;
+	border: 1px solid var(--borda);
+	border-radius: 6px;
+	padding: 1rem;
+}
+
+legend {
+	padding: 0 0.35rem;
+}
+
+.opcao {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.opcao input {
+	width: auto;
+	accent-color: var(--primaria);
+}
+
+form button {
+	padding: 0.8rem 1.5rem;
+	border: 2px solid transparent;
+	border-radius: 8px;
+	color: #ffffff;
+	background-color: var(--primaria);
+	font: inherit;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.3s;
+}
+
+form button:hover {
+	background-color: var(--primaria-hover);
+	transform: translateY(-2px);
+}
+
+form button:focus-visible {
+	outline: 3px solid var(--foco);
+	outline-offset: 2px;
+}
+
+.informacoes {
+	border-top: 4px solid var(--azul-500);
+}
+
+.informacoes h2 {
+	margin-bottom: 0.75rem;
+}
+
+.informacoes > p {
+	margin-bottom: 1.5rem;
+}
+
+.informacao {
+	padding: 1rem 0;
+	border-top: 1px solid var(--borda);
+}
+
+.informacao strong {
+	color: var(--titulo);
+}
+
+.informacao p {
+	margin-top: 0.25rem;
+}
+
+@media (min-width: 768px) {
+	.contato {
+		padding: 4rem 1rem 3rem;
+	}
+
+	.titulo h1 {
+		font-size: 2.5rem;
+	}
+
+	.conteudo {
+		grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+		align-items: start;
+		padding-top: 3rem;
+	}
+}

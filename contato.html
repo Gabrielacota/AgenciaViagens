@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirFly - Contato</title>    
+    <link rel="icon" type="image/png" href="images/favicon.png" />    
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+    <header class="topo">
+      <div class="container barra">
+        <a class="marca" href="index.html" aria-label="AirFly — página inicial">
+          <img
+            class="marca-logo"
+            src="images/logo-horizontal.svg"
+            alt="AirFly Travel Agency"
+            width="159"
+            height="52">
+        </a>
+
+        <nav aria-label="Navegação principal">
+          <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li>
+              <a href="destinos.html" class="ativo" aria-current="page"
+                >Destinos</a
+              >
+            </li>
+            <li><a href="contato.html">Contato</a></li>
+            <li>
+              <a class="botao primario pequeno" href="contato.html"
+                >Pedir orçamento</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="contato">
+        <div class="titulo">
+            <h1>Entre em contato</h1>
+            <p>
+                Planeje sua proxima viagem conosco!<br>
+                Preencha o formulario e entraremos em contato
+            </p>
+        </div>
+    </section>
+
+    <div class="conteudo">
+
+        <!-- FORMULÁRIO -->
+        <form class="formulario">        
+
+            <!-- Nome -->
+            <div class="campo">
+                <label for="nome">Nome: </label>
+                <input 
+                type="text" 
+                id="nome" 
+                name="nome" 
+                minlength="3" 
+                maxlength="100" 
+                pattern="[A-Za-zÀ-ÿ\s]+" 
+                placeholder="Digite seu nome completo" 
+                required>
+            </div>
+            
+            <!-- E-mail -->
+            <div class="campo">
+                <label for="email">Email: </label>
+                <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="exemplo@gmail.com" 
+                required>
+            </div>
+            
+            <!-- Número de viajantes -->
+            <div class="campo">
+                <label for="viajantes">Numero de viajantes: </label>
+                <input 
+                type="number" 
+                id="viajantes" 
+                name="viajantes" 
+                min="1" 
+                max="20" 
+                required>
+            </div>
+
+            <!-- Data -->
+            <div class="campo">
+                <label for="data">Data da Viagem: </label>
+                <input 
+                type="date" 
+                id="data" 
+                name="data" 
+                required>
+            </div>
+
+            <!-- Radio -->
+            <fieldset class="opcoes">
+                <legend>Tipo de viagem: </legend>
+                <div class="opcao">                    
+                    <input type="radio" id="lazer" name="tipo_viagem" value="lazer" required>
+                    <label for="lazer">Lazer</label>
+                </div>
+
+                <div class="opcao">
+                    <input type="radio" id="aventura" name="tipo_viagem" value="aventura">
+                    <label for="aventura">Aventura</label>
+                </div>
+
+                <div class="opcao">
+                    <input type="radio" id="familia" name="tipo_viagem" value="familia">
+                    <label for="familia">Familia: </label>
+                </div>
+            </fieldset>
+
+            <!-- Checkbox -->
+            <fieldset class="opcoes">
+                <legend>Serviços extras: </legend>
+
+                <div class="opcao">
+                    <input type="checkbox" id="hotel" name="servicos" value="hotel">
+                    <label for="hotel">Hotel</label>
+                </div>
+
+                <div class="opcao">
+                    <input type="checkbox" id="transporte" name="servicos" value="transporte">
+                    <label for="transporte">Transporte</label>
+                </div>
+
+                <div class="opcao">
+                    <input type="checkbox" id="guia" name="servicos" value="guia">
+                    <label for="guia">Guia Turistico</label>
+                </div>
+            </fieldset>
+
+            <!-- Select -->
+            <div class="campo">
+                <label for="destino">Destino: </label>
+
+                <select id="destino" name="destino" required>
+                    <option value="">Selecione um destino</option>
+                    <option value="chapada_diamantina">Chapada Diamantina</option>
+                    <option value="lisboa">Lisboa</option>
+                    <option value="orlando">Orlando</option>
+                    <option value="zermatt">Zermatt</option>
+                    <option value="cairo">Cairo</option>
+                    <option value="recife">Recife</option>
+                    <option value="autodromo_interlagos">Autódromo de Interlagos</option>
+                    <option value="paris">Paris</option>
+                </select>
+            </div>
+
+            <!-- Textarea -->
+            <div class="campo">
+                <label for="observacoes">Observações: </label><br>
+                <textarea 
+                id="observacoes" 
+                name="observacoes" 
+                minlength="10" 
+                maxlength="500" 
+                placeholder="Digite informações adicionais sobre sua viagem..." 
+                required></textarea>
+            </div>
+            
+            <!-- Botão -->
+            <button type="submit">
+                Enviar formulário
+            </button>
+        </form>
+
+        <!-- INFORMAÇÕES DA AGÊNCIA -->
+        <aside class="informacoes">
+
+            <h2>Fale conosco</h2>
+
+            <p>
+                Estamos prontos para ajudar você
+                a planejar sua próxima aventura.
+            </p>
+
+            <div class="informacao">
+                <strong>📍 Endereço</strong>
+                <p>
+                    Rua das Alagoas, 320 — Maceió/AL
+                </p>
+            </div>
+
+            <div class="informacao">
+                <strong>📞 Telefone</strong>
+                <p>
+                    (82) 3333-4444
+                </p>
+            </div>
+
+            <div class="informacao">
+                <strong>📧 E-mail</strong>
+                <p>
+                    contato@airfly.com.br
+                </p>
+            </div>
+
+            <div class="informacao">
+                <strong>🕐 Horário de atendimento</strong>
+                <p>
+                    Segunda a sexta: 09h às 18h
+                </p>
+            </div>
+
+        </aside>
+    </div>
+</body>
+</html>

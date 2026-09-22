@@ -459,7 +459,7 @@ nav[aria-label="Navegação principal"] {
   color: #ffffff;
   background-image:
     linear-gradient(rgba(15, 42, 82, 0.86), rgba(15, 42, 82, 0.74)),
-    url("../images/hero.svg");
+    url("../assets/hero.svg");
   background-size: cover;
   background-position: center;
 }

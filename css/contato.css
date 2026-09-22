@@ -16,11 +16,13 @@
 .titulo h1 {
 	margin-bottom: 0.75rem;
 	font-size: 2rem;
+	color: #ffffff;
 }
 
 .titulo p {
 	max-width: 55ch;
 	margin: 0 auto;
+	color: var(--sobre-escuro);
 }
 
 .conteudo {
@@ -55,7 +57,7 @@ form {
 label,
 legend {
 	font-weight: bold;
-	color: var(--azul-escuro);
+	color: var(--titulo);
 }
 
 input,
@@ -73,8 +75,8 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-	outline: 3px solid rgba(192, 67, 30, 0.25);
-	border-color: var(--laranja);
+	outline: 3px solid rgba(35, 90, 171, 0.25);
+	border-color: var(--primaria);
 }
 
 textarea {
@@ -102,15 +104,15 @@ legend {
 
 .opcao input {
 	width: auto;
-	accent-color: var(--laranja);
+	accent-color: var(--primaria);
 }
 
 form button {
 	padding: 0.8rem 1.5rem;
 	border: 2px solid transparent;
 	border-radius: 8px;
-	color: var(primaria-escuro);
-	background-color: var(--laranja);
+	color: #ffffff;
+	background-color: var(--primaria);
 	font: inherit;
 	font-weight: bold;
 	cursor: pointer;
@@ -118,17 +120,17 @@ form button {
 }
 
 form button:hover {
-	background-color: var(green);
+	background-color: var(--primaria-hover);
 	transform: translateY(-2px);
 }
 
-form button:focus {
-	outline: 3px solid var(--laranja);
+form button:focus-visible {
+	outline: 3px solid var(--foco);
 	outline-offset: 2px;
 }
 
 .informacoes {
-	border-top: 4px solid var(--azul);
+	border-top: 4px solid var(--azul-500);
 }
 
 .informacoes h2 {
@@ -145,7 +147,7 @@ form button:focus {
 }
 
 .informacao strong {
-	color: var(--azul-escuro);
+	color: var(--titulo);
 }
 
 .informacao p {

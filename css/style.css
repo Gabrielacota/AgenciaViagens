@@ -785,33 +785,34 @@ nav[aria-label="Navegação principal"] {
   }
 }
 
-/* centraliza o texto inicial e projeta uma imagem ao fundo de um desenho de montanhas*/
+/* =========================================
+   Página de contato
+   ========================================= */
+
+/* centraliza o texto inicial e projeta uma imagem ao fundo de um desenho de montanhas */
 .contato {
 	padding: 3rem 1rem 2rem;
 	text-align: center;
-	background-image: linear-gradient(rgba(199, 221, 236, 0.75), rgba(21, 111, 172, 0.6)),
+	background-image: linear-gradient(rgba(15, 42, 82, 0.78), rgba(15, 42, 82, 0.55)),
                     url("../images/hero.svg");
-    background-size: contain;
-    background-position: center;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 	border-bottom: 1px solid var(--borda);
 }
 
-/* estabelece largura maxima para o texto */
-.titulo {
-	max-width: 700px;
-	margin: 0 auto;
-}
-
-/* estabelece tamanho da margem inferior e tamanho da fonte*/
 .titulo h1 {
 	margin-bottom: 0.75rem;
 	font-size: 2rem;
+	color: #ffffff;
+	text-shadow: 0 1px 3px rgba(15, 42, 82, 0.45);
 }
 
-/* estabelece largura maxima e tamanho da margem como automatico*/
 .titulo p {
 	max-width: 55ch;
 	margin: 0 auto;
+	color: #ffffff;
+	text-shadow: 0 1px 3px rgba(15, 42, 82, 0.45);
 }
 
 .conteudo {
@@ -823,7 +824,7 @@ nav[aria-label="Navegação principal"] {
 	padding: 2rem 1rem 3rem;
 }
 
-/* crie o formato quadrado que separa o forms da pagina*/
+/* cria o formato quadrado que separa o forms da pagina */
 form,
 .informacoes {
 	background-color: #FFFFFF;
@@ -847,7 +848,7 @@ form {
 label,
 legend {
 	font-weight: bold;
-	color: var(--azul-escuro);
+	color: var(--titulo);
 }
 
 input,
@@ -865,8 +866,8 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-	outline: 3px solid rgba(192, 67, 30, 0.25);
-	border-color: var(--laranja);
+	outline: 3px solid rgba(35, 90, 171, 0.25);
+	border-color: var(--primaria);
 }
 
 textarea {
@@ -894,14 +895,16 @@ legend {
 
 .opcao input {
 	width: auto;
-	accent-color: var(--laranja);
+	accent-color: var(--primaria);
 }
 
+/* botão do formulário: texto sempre branco, só o fundo escurece no hover
+   (segue o mesmo padrão de .botao.primario:hover) */
 form button {
 	padding: 0.8rem 1.5rem;
 	border: 2px solid transparent;
 	border-radius: 8px;
-	color: var(--sobre-escuro);
+	color: #ffffff;
 	background-color: var(--primaria);
 	font: inherit;
 	font-weight: bold;
@@ -910,13 +913,17 @@ form button {
 }
 
 form button:hover {
-	background-color: var(--sobre-escuro);
-  color: var(--primaria);
+	background-color: var(--primaria-hover);
 	transform: translateY(-2px);
 }
 
+form button:focus-visible {
+	outline: 3px solid var(--foco);
+	outline-offset: 2px;
+}
+
 .informacoes {
-	border-top: 4px solid var(--azul);
+	border-top: 4px solid var(--azul-500);
 }
 
 .informacoes h2 {
@@ -933,7 +940,7 @@ form button:hover {
 }
 
 .informacao strong {
-	color: var(--azul-escuro);
+	color: var(--titulo);
 }
 
 .informacao p {

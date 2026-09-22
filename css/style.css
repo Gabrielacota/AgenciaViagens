@@ -693,11 +693,9 @@ nav[aria-label="Navegação principal"] {
   border-top: 2px dashed var(--rodape-linha);
 }
 
-.rodape-rota svg {
+.rodape-rota img {
   width: 24px;
   height: 24px;
-  fill: currentColor;
-  transform: rotate(90deg);
 }
 
 .creditos {

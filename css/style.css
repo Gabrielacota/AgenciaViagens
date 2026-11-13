@@ -512,7 +512,6 @@ nav[aria-label="Navegação principal"] {
   margin-top: var(--esp-6);
 }
 
-.card,
 .card-destino {
   display: flex;
   flex-direction: column;
@@ -525,13 +524,11 @@ nav[aria-label="Navegação principal"] {
     box-shadow var(--transicao);
 }
 
-.card:hover,
 .card-destino:hover {
   transform: var(--elevar-card);
   box-shadow: var(--sombra-suave);
 }
 
-.card img,
 .card-destino img {
   width: 100%;
   height: 200px;
@@ -539,31 +536,26 @@ nav[aria-label="Navegação principal"] {
 }
 
 /* botão sempre embaixo do card */
-.card-texto,
-.conteudo-card {
+.card-texto {
   display: flex;
   flex-direction: column;
   flex: 1;
   padding: var(--esp-5);
 }
 
-.card-texto h3,
-.conteudo-card h3 {
+.card-texto h3 {
   font-size: var(--texto-h3);
 }
 
-.card-texto p:not(.preco),
-.conteudo-card p:not(.preco) {
+.card-texto p:not(.preco) {
   color: var(--texto-suave);
 }
 
-.card-texto p:last-of-type,
-.conteudo-card p:last-of-type {
+.card-texto p:last-of-type {
   margin-bottom: var(--esp-4);
 }
 
-.card-texto .botao,
-.conteudo-card .botao {
+.card-texto .botao {
   align-self: flex-start;
   margin-top: auto;
 }
@@ -779,7 +771,6 @@ nav[aria-label="Navegação principal"] {
   }
 
   .botao:hover,
-  .card:hover,
   .card-destino:hover {
     transform: none;
   }
@@ -791,174 +782,177 @@ nav[aria-label="Navegação principal"] {
 
 /* centraliza o texto inicial e projeta uma imagem ao fundo de um desenho de montanhas */
 .contato {
-	padding: 3rem 1rem 2rem;
-	text-align: center;
-	background-image: linear-gradient(rgba(15, 42, 82, 0.78), rgba(15, 42, 82, 0.55)),
-                    url("../images/hero.svg");
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	border-bottom: 1px solid var(--borda);
+  padding: 3rem 1rem 2rem;
+  text-align: center;
+  background-image:
+    linear-gradient(rgba(15, 42, 82, 0.78), rgba(15, 42, 82, 0.55)),
+    url("../images/hero.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid var(--borda);
 }
 
 .titulo h1 {
-	margin-bottom: 0.75rem;
-	font-size: 2rem;
-	color: #ffffff;
-	text-shadow: 0 1px 3px rgba(15, 42, 82, 0.45);
+  margin-bottom: 0.75rem;
+  font-size: 2rem;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(15, 42, 82, 0.45);
 }
 
 .titulo p {
-	max-width: 55ch;
-	margin: 0 auto;
-	color: #ffffff;
-	text-shadow: 0 1px 3px rgba(15, 42, 82, 0.45);
+  max-width: 55ch;
+  margin: 0 auto;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(15, 42, 82, 0.45);
 }
 
 .conteudo {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 2rem;
-	max-width: 1000px;
-	margin: 0 auto;
-	padding: 2rem 1rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
 }
 
 /* cria o formato quadrado que separa o forms da pagina */
 form,
 .informacoes {
-	background-color: #FFFFFF;
-	border: 1px solid var(--borda);
-	border-radius: 8px;
-	padding: 1.5rem;
-	box-shadow: 0 4px 12px rgba(11, 45, 63, 0.08);
+  background-color: #ffffff;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(11, 45, 63, 0.08);
 }
 
 form {
-	display: grid;
-	gap: 1rem;
+  display: grid;
+  gap: 1rem;
 }
 
 .campo {
-	display: flex;
-	flex-direction: column;
-	gap: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
 label,
 legend {
-	font-weight: bold;
-	color: var(--titulo);
+  font-weight: bold;
+  color: var(--titulo);
 }
 
 input,
 select,
 textarea {
-	width: 100%;
-	padding: 0.75rem;
-	border: 1px solid var(--borda);
-	border-radius: 6px;
-	color: var(--texto);
-	background-color: #FFFFFF;
-	font: inherit;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  color: var(--texto);
+  background-color: #ffffff;
+  font: inherit;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-	outline: 3px solid rgba(35, 90, 171, 0.25);
-	border-color: var(--primaria);
+  outline: 3px solid rgba(35, 90, 171, 0.25);
+  border-color: var(--primaria);
 }
 
 textarea {
-	min-height: 130px;
-	resize: vertical;
+  min-height: 130px;
+  resize: vertical;
 }
 
 fieldset {
-	display: grid;
-	gap: 0.65rem;
-	border: 1px solid var(--borda);
-	border-radius: 6px;
-	padding: 1rem;
+  display: grid;
+  gap: 0.65rem;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  padding: 1rem;
 }
 
 legend {
-	padding: 0 0.35rem;
+  padding: 0 0.35rem;
 }
 
 .opcao {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .opcao input {
-	width: auto;
-	accent-color: var(--primaria);
+  width: auto;
+  accent-color: var(--primaria);
 }
 
 /* botão do formulário: texto sempre branco, só o fundo escurece no hover
    (segue o mesmo padrão de .botao.primario:hover) */
 form button {
-	padding: 0.8rem 1.5rem;
-	border: 2px solid transparent;
-	border-radius: 8px;
-	color: #ffffff;
-	background-color: var(--primaria);
-	font: inherit;
-	font-weight: bold;
-	cursor: pointer;
-	transition: background-color 0.3s, transform 0.3s;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  color: #ffffff;
+  background-color: var(--primaria);
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
 }
 
 form button:hover {
-	background-color: var(--primaria-hover);
-	transform: translateY(-2px);
+  background-color: var(--primaria-hover);
+  transform: translateY(-2px);
 }
 
 form button:focus-visible {
-	outline: 3px solid var(--foco);
-	outline-offset: 2px;
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
 }
 
 .informacoes {
-	border-top: 4px solid var(--azul-500);
+  border-top: 4px solid var(--azul-500);
 }
 
 .informacoes h2 {
-	margin-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .informacoes > p {
-	margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .informacao {
-	padding: 1rem 0;
-	border-top: 1px solid var(--borda);
+  padding: 1rem 0;
+  border-top: 1px solid var(--borda);
 }
 
 .informacao strong {
-	color: var(--titulo);
+  color: var(--titulo);
 }
 
 .informacao p {
-	margin-top: 0.25rem;
+  margin-top: 0.25rem;
 }
 
 @media (min-width: 768px) {
-	.contato {
-		padding: 4rem 1rem 3rem;
-	}
+  .contato {
+    padding: 4rem 1rem 3rem;
+  }
 
-	.titulo h1 {
-		font-size: 2.5rem;
-	}
+  .titulo h1 {
+    font-size: 2.5rem;
+  }
 
-	.conteudo {
-		grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
-		align-items: start;
-		padding-top: 3rem;
-	}
+  .conteudo {
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+    align-items: start;
+    padding-top: 3rem;
+  }
 }

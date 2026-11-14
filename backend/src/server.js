@@ -11,11 +11,8 @@ app.use(express.json());
 
 app.get("/api/destinos", async (req, res) => {
   try {
-    const resultado = await pool.query("SELECT NOW()");
-
-    res.json({
-      mensagem: "Conexão realizada",
-    });
+    const resultado = await pool.query("SELECT id, nome_destino, abrangencia, descricao, preco_inicial, duracao_dias, imagem_url, descricao_alt FROM destinos WHERE ativo = TRUE ORDER BY id");
+    res.json(resultado.rows);
   } catch (erro) {
     console.error(erro);
 

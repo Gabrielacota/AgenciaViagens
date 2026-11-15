@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AirFly — Pacotes de viagem para o Brasil e o mundo</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo-monograma.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+<body>
+  <main class="conteudo conteudo-auth">
+    <form novalidate>
+      <h2>Cadastro</h2>
+
+      <div class="campo">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required />
+      </div>
+
+      <div class="campo">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required />
+      </div>
+
+      <div class="campo">
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+      </div>
+      <p id="erro" class="erro"></p>
+
+      <button type="submit">Realizar Cadastro</button>
+      <p>Já possui uma conta? <a href="login.html">Faça login</a></p>
+    </form>
+
+    <div class="banner">
+      <img src="images/bannerLoginRegister.png" alt="AirFly Travel Agency" />
+    </div>
+  </main>
+  <script src="js/validacao.js"></script>
+</body>
+</html>

@@ -94,7 +94,7 @@ INSERT INTO destinos (
     'images/disney.jpg',
     'Castelo da Disney, Orlando'
 ),
-
+(
     'Zermatt, Suíça',
     'internacional',
     NULL,

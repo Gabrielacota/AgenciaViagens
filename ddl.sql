@@ -1,3 +1,11 @@
+CREATE TABLE usuarios (
+    id       SERIAL PRIMARY KEY,
+    nome     VARCHAR(120) NOT NULL,
+    email    VARCHAR(150) NOT NULL UNIQUE,
+    senha    TEXT NOT NULL,
+    criado_em TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
 CREATE TABLE destinos (
     id            SERIAL PRIMARY KEY,
     nome_destino  VARCHAR(100) NOT NULL,
@@ -94,7 +102,7 @@ INSERT INTO destinos (
     'images/disney.jpg',
     'Castelo da Disney, Orlando'
 ),
-
+(
     'Zermatt, Suíça',
     'internacional',
     NULL,

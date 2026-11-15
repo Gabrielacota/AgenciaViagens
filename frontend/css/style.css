@@ -987,4 +987,8 @@ form button:focus-visible {
       gap: 0.75rem;
     }
   }
+
+  .erro{
+    color: crimson;
+  }
 }

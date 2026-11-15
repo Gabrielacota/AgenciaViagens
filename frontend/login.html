@@ -15,7 +15,7 @@
   </head>
 <body>
   <main class="conteudo conteudo-auth">
-    <form>
+    <form novalidate>
       <h2>Login</h2>
 
       <div class="campo">
@@ -25,10 +25,11 @@
 
       <div class="campo">
         <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" minlength="6" placeholder="Digite sua senha" required />
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
         <a href="#" class="esqueceu">Esqueceu a senha?</a>
       </div>
 
+      <p id="erro" class="erro"></p>
       <button type="submit">Realizar Login</button>
       <p>Não possui uma conta? <a href="cadastro.html">Cadastre-se</a></p>
     </form>
@@ -37,5 +38,6 @@
       <img src="images/bannerLoginRegister.png" alt="AirFly Travel Agency" />
     </div>
   </main>
+  <script src="js/validacao.js"></script>
 </body>
 </html>

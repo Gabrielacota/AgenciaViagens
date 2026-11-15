@@ -213,6 +213,26 @@ textarea:focus-visible {
   padding: var(--esp-secao) 0;
 }
 
+.mensagem-erro {
+  width: calc(100% - var(--gutter) - var(--gutter));
+  margin: 0 auto;
+  padding: var(--esp-4);
+  border: 1px solid var(--erro-borda);
+  border-radius: var(--raio-card);
+  background-color: var(--erro-fundo);
+  color: var(--erro-texto);
+  font-weight: 700;
+  text-align: center;
+}
+
+.aviso-sem-destinos {
+  width: calc(100% - var(--gutter) - var(--gutter));
+  margin: 0 auto;
+  padding: var(--esp-4);
+  text-align: center;
+  font-size: var(--texto-lead);
+}
+
 /* id porque só tem uma seção assim */
 #destaques {
   background-color: var(--fundo-alt);

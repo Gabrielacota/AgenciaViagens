@@ -8,12 +8,21 @@ function exibirDestinos(destinos) {
     const cardDestino = document.createElement("article");
     cardDestino.classList.add("card-destino");
 
-    let descricaoDestino = `<p>${destino.descricao}</p>`;
-    if (destino.descricao === null) {
-      descricaoDestino = "";
-    }
+    const descricao = destino.descricao === null ? "" : `<p>${destino.descricao}</p>`
+    const abrangencia = destino.abrangencia === "internacional" ? "Internacional" : "Nacional";
+    const duracao = `${destino.duracao_dias} ${destino.duracao_dias === 1 ? "dia" : "dias"}`;
 
-    cardDestino.innerHTML = `<img src="${destino.imagem_url}" alt="${destino.descricao_alt}" /><div class="card-texto"><h3>${destino.nome_destino}</h3>${descricaoDestino}<p class="preco">A partir de R$ ${destino.preco_inicial}</p><a class="botao secundario" href="contato.html">Saiba mais</a></div>`;
+    cardDestino.innerHTML = `<img src="${destino.imagem_url}" alt="${destino.descricao_alt}" />
+                             <div class="card-texto">
+                               <ul class="badges-destino">
+                                 <li>${abrangencia}</li>
+                                 <li>${duracao}</li>
+                               </ul>
+                               <h3>${destino.nome_destino}</h3>
+                               ${descricao}
+                               <p class="preco">A partir de R$ ${destino.preco_inicial}</p>
+                               <a class="botao secundario" href="contato.html">Saiba mais</a>
+                             </div>`;
 
     galeriaDestinos.appendChild(cardDestino);
   });

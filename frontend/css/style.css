@@ -213,6 +213,13 @@ textarea:focus-visible {
   padding: var(--esp-secao) 0;
 }
 
+#input-destinos {
+  display: block;
+  width: calc(100% - var(--gutter) - var(--gutter));
+  margin: 0 auto var(--esp-6);
+  border-radius: var(--raio-campo);
+}
+
 .mensagem-erro {
   width: calc(100% - var(--gutter) - var(--gutter));
   margin: 0 auto;
@@ -569,6 +576,21 @@ nav[aria-label="Navegação principal"] {
 
 .card-texto p:not(.preco) {
   color: var(--texto-suave);
+}
+
+.badges-destino {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-2);
+  margin-bottom: var(--esp-3);
+}
+
+.badges-destino li {
+  padding: var(--esp-1) var(--esp-3);
+  border-radius: var(--raio-card);
+  background-color: var(--azul-50);
+  color: var(--titulo);
+  font-size: var(--texto-minimo);
 }
 
 .card-texto p:last-of-type {

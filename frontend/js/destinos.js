@@ -45,6 +45,8 @@ function exibirErro(erro) {
   secao.innerHTML = `<p class="mensagem-erro">Ocorreu um erro ao carregar os destinos. Tente novamente mais tarde.</p>`;
 }
 
+const estadoCarregamento = document.getElementById("carregando-destinos");
+
 function buscarDestinos(destinos) {
   const inputDestinos = document.getElementById("input-destinos")
   const avisoSemResultados = document.getElementById("sem-resultados");
@@ -84,4 +86,7 @@ fetch("http://localhost:3000/api/destinos")
       exibirSemDestinos()
     }
   })
-  .catch(erro => exibirErro(erro));
+  .catch(erro => exibirErro(erro))
+  .finally(() => {
+    estadoCarregamento.remove();
+  });

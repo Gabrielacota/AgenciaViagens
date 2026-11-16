@@ -233,6 +233,7 @@ textarea:focus-visible {
 }
 
 .aviso-sem-destinos,
+#carregando-destinos,
 #sem-resultados {
   width: calc(100% - var(--gutter) - var(--gutter));
   margin: 0 auto;
@@ -816,6 +817,10 @@ nav[aria-label="Navegação principal"] {
   .botao:hover,
   .card-destino:hover {
     transform: none;
+  }
+
+  .indicador-carregamento {
+    animation: none;
   }
 }
 

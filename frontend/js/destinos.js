@@ -27,6 +27,8 @@ function exibirDestinos(destinos) {
     galeriaDestinos.appendChild(cardDestino);
   });
   secao.appendChild(galeriaDestinos);
+
+  return galeriaDestinos.querySelectorAll(".card-destino")
 }
 
 function exibirSemDestinos() {
@@ -43,6 +45,30 @@ function exibirErro(erro) {
   secao.innerHTML = `<p class="mensagem-erro">Ocorreu um erro ao carregar os destinos. Tente novamente mais tarde.</p>`;
 }
 
+function buscarDestinos(destinos) {
+  const inputDestinos = document.getElementById("input-destinos")
+  const avisoSemResultados = document.getElementById("sem-resultados");
+
+  inputDestinos.addEventListener("input", () => {
+    const termoDeBusca = inputDestinos.value.toLowerCase().trim()
+
+    let destinosEncontrados = 0
+
+    destinos.forEach(destino => {
+      const nomeDestino = destino.querySelector("h3").textContent.toLowerCase()
+
+      if (nomeDestino.includes(termoDeBusca)) {
+        destino.style.display = "block"
+        destinosEncontrados++
+      } else {
+        destino.style.display = "none"
+      }
+    })
+    
+    avisoSemResultados.style.display = destinosEncontrados === 0 ? "block" : "none";
+  })
+}
+
 fetch("http://localhost:3000/api/destinos")
   .then(resposta => {
     if (!resposta.ok) {
@@ -52,7 +78,8 @@ fetch("http://localhost:3000/api/destinos")
   })
   .then(destinos => {
     if (destinos.length > 0) {
-      exibirDestinos(destinos)
+      const cards = exibirDestinos(destinos)
+      buscarDestinos(cards)
     } else {
       exibirSemDestinos()
     }

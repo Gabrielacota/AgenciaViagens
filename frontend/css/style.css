@@ -232,7 +232,8 @@ textarea:focus-visible {
   text-align: center;
 }
 
-.aviso-sem-destinos {
+.aviso-sem-destinos,
+#sem-resultados {
   width: calc(100% - var(--gutter) - var(--gutter));
   margin: 0 auto;
   padding: var(--esp-4);

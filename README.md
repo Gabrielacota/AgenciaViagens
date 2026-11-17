@@ -30,78 +30,125 @@ O usuário poderá:
 
 ## Como executar
 
-### 1. Configurar e iniciar o backend
+### 1. Banco no Neon
+No SQL Editor do Neon, execute o conteúdo de `ddl.sql` uma vez. Isso cria:
+- `usuarios` (campo `admin` começa em `FALSE`)
+- `destinos` (já com os pacotes de exemplo, `ativo = TRUE`)
+- `solicitacoes` (orçamentos do formulário de contato)
 
-No terminal, execute:
+### 2. Variáveis de ambiente
+Na pasta `backend`, crie o arquivo `.env`:
+```env
+DATABASE_URL=postgresql://USUARIO:SENHA@HOST-pooler.REGIAO.aws.neon.tech/neondb?sslmode=require
+PORT=3000
+```
+- `DATABASE_URL`: connection string do Neon (Dashboard → Connect).
+- `PORT`: porta do Express. Se omitir, o servidor usa `3000`.
 
+### 3. Instalar e iniciar
+No terminal, a partir da raiz do projeto:
 ```bash
 cd backend
 npm install
 npm run dev
 ```
-
-O servidor inicia na porta `3000` por padrão.
-
-### 2. Abrir o frontend
-
-Sirva a pasta `frontend/` com uma extensão como Live Server e abra `index.html`.
-
-### Rota
-
-Listar todos destinos (get):
-
+`npm run dev` sobe o servidor com nodemon (`backend/src/server.js`) e recarrega ao salvar. Para subir sem recarga automática:
 ```bash
-curl http://localhost:3000/api/destinos
+npm start
 ```
+Quando der certo, o terminal mostra `Servidor rodando na porta 3000`.
 
-Criar Destino (post):
+### 4. Frontend
+Sirva a pasta `frontend/` (por exemplo com a extensão Live Server) e abra `index.html`. As páginas chamam `http://localhost:3000`.
 
-```bash
-curl -X POST http://localhost:3000/api/destinos
-    -H "Content-Type: application/json" \
-    -d '{"nome_destino":"nomeExemplo","abrangencia":"abrangenciaExemplo","descricao":"descricaoExemplo","preco_inicial":"200", "duracao_dias":"3","imagem_url":"exemplo","descricao_alt":"122.44"}'
+### 5. Virar administrador
+Nos planejamos criar o CRUD dos destinos de viagem entretanto para evitar que o usuario comum fizesse isso foi criado um usuario admin que pode acessar e realizar todas essas ações.
+
+Deste modo primeiro voce deve cadastrar um usuario comum e depois ir no banco de dados e promovelo para admin, assim tendo acesso a todas as rotas do criadas
+
+O cadastro pela tela ou por `POST /api/usuarios` cria usuário comum. No SQL Editor do Neon:
+```sql
+UPDATE usuarios SET admin = TRUE WHERE email = 'seu-email@exemplo.com';
 ```
-
-Atualizar Destino (put):
-
-```bash
-curl -X PUT http://localhost:3000/api/destinos/:id
-    -H "Content-Type: application/json" \
-    -d '{"nome_destino":"nomeExemplo","abrangencia":"abrangenciaExemplo","descricao":"descricaoExemplo","preco_inicial":"200", "duracao_dias":"3","imagem_url":"exemplo","descricao_alt":"122.44"}'
+Faça login de novo. A resposta traz `token` e `admin: true`. O frontend guarda os dois no `localStorage` e libera o painel em `destinos.html`. Nas rotas de admin, envie:
+```http
+Authorization: Bearer SEU_TOKEN
 ```
+O token vale 1 dia.
+---
 
-Deletar Destino (delete):
+# Rotas da API
+Base: `http://localhost:3000`
+| Método | Rota | Quem pode | O que faz |
+|---|---|---|---|
+| POST | `/api/login` | Público | Autentica e devolve `{ token, admin }` |
+| POST | `/api/usuarios` | Público | Cria usuário (sempre não admin) |
+| PUT | `/api/usuarios/:id` | Público | Atualiza nome, email e senha |
+| DELETE | `/api/usuarios/:id` | Público | Apaga o usuário |
+| GET | `/api/destinos` | Público | Lista destinos ativos |
+| POST | `/api/destinos` | Admin | Cria destino |
+| PUT | `/api/destinos/:id` | Admin | Atualiza destino ativo |
+| DELETE | `/api/destinos/:id` | Admin | Desativa o destino (`ativo = FALSE`) |
+| POST | `/api/solicitacoes` | Público | Grava pedido de orçamento/reserva |
 
-```bash
-curl http://localhost:3000/api/destinos/:id
-```
-
-Fazer login:
-
+## Login — público
 ```bash
 curl -X POST http://localhost:3000/api/login \
   -H "Content-Type: application/json" \
-  -d '{"email":"cliente@exemplo.com","senha":"SenhaForte123"}'
+  -d "{\"email\":\"cliente@exemplo.com\",\"senha\":\"SenhaForte123\"}"
 ```
+Corpo: `email`, `senha`. Sucesso: `{ "token": "...", "admin": false }` ou `false`.
 
-Criar Usuario (post):
-
+## Usuários — públicos
+Criar:
 ```bash
-curl -X POST http://localhost:3000/api/usuarios
-    -H "Content-Type: application/json" \
-    -d '{"nome":"nomeExemplo", "email":"cliente@exemplo.com","senha":"SenhaForte123"}'
+curl -X POST http://localhost:3000/api/usuarios \
+  -H "Content-Type: application/json" \
+  -d "{\"nome\":\"nomeExemplo\",\"email\":\"cliente@exemplo.com\",\"senha\":\"SenhaForte123\"}"
 ```
-
-Atualizar Usuario (put):
-
+Corpo: `nome`, `email`, `senha`. A senha é gravada com salt + scrypt. Email repetido devolve `409`.
+Atualizar (envia os três campos de novo):
 ```bash
-curl -X PUT http://localhost:3000/api/usuarios/:id
-    -H "Content-Type: application/json" \
-    -d '{"nome":"nomeExemplo", "email":"cliente@exemplo.com","senha":"SenhaForte123"}'
+curl -X PUT http://localhost:3000/api/usuarios/1 \
+  -H "Content-Type: application/json" \
+  -d "{\"nome\":\"nomeExemplo\",\"email\":\"cliente@exemplo.com\",\"senha\":\"SenhaForte123\"}"
 ```
-
-Deletar Usuario (delete):
-
+Apagar:
 ```bash
-curl http://localhost:3000/api/usuarios/:id
+curl -X DELETE http://localhost:3000/api/usuarios/1
 ```
+
+## Destinos
+Listar (público). Só entram registros com `ativo = true`:
+```bash
+curl http://localhost:3000/api/destinos
+```
+Criar (admin):
+```bash
+curl -X POST http://localhost:3000/api/destinos \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer SEU_TOKEN" \
+  -d "{\"nome_destino\":\"nomeExemplo\",\"abrangencia\":\"nacional\",\"descricao\":\"descricaoExemplo\",\"preco_inicial\":200,\"duracao_dias\":3,\"imagem_url\":\"exemplo\",\"descricao_alt\":\"Praia\"}"
+```
+`abrangencia` aceita só `nacional` ou `internacional`. `preco_inicial` e `duracao_dias` precisam ser maiores que zero.
+Atualizar (admin):
+```bash
+curl -X PUT http://localhost:3000/api/destinos/1 \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer SEU_TOKEN" \
+  -d "{\"nome_destino\":\"nomeExemplo\",\"abrangencia\":\"internacional\",\"descricao\":\"descricaoExemplo\",\"preco_inicial\":200,\"duracao_dias\":3,\"imagem_url\":\"exemplo\",\"descricao_alt\":\"Praia\"}"
+```
+Desativar (admin). A linha permanece no banco e some da listagem:
+```bash
+curl -X DELETE http://localhost:3000/api/destinos/1 \
+  -H "Authorization: Bearer SEU_TOKEN"
+```
+
+## Solicitações — público
+Usada pelo formulário de `contato.html`. `destino` é o `id` numérico de um destino.
+```bash
+curl -X POST http://localhost:3000/api/solicitacoes \
+  -H "Content-Type: application/json" \
+  -d "{\"nome\":\"Ana\",\"email\":\"ana@exemplo.com\",\"viajantes\":2,\"data_viagem\":\"2026-12-20\",\"destino\":1,\"observacoes\":\"Quarto duplo\"}"
+```
+Obrigatórios: `nome`, `email`, `viajantes`, `data_viagem`, `destino`. `observacoes` pode ir vazio.

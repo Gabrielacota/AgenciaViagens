@@ -213,11 +213,12 @@ textarea:focus-visible {
   padding: var(--esp-secao) 0;
 }
 
-#input-destinos {
-  display: block;
-  width: calc(100% - var(--gutter) - var(--gutter));
-  margin: 0 auto var(--esp-6);
-  border-radius: var(--raio-campo);
+.secao-destinos {
+  padding-inline: var(--gutter);
+}
+
+.secao-destinos > .galeria-destinos {
+  padding-inline: 0;
 }
 
 .mensagem-erro {
@@ -363,6 +364,18 @@ textarea:focus-visible {
   flex-direction: column;
   gap: var(--esp-2);
   margin-bottom: var(--esp-5);
+}
+
+.filtros-destinos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--esp-4);
+  margin-bottom: var(--esp-6);
+}
+
+.filtros-destinos .campo {
+  min-width: 0;
+  margin-bottom: 0;
 }
 
 .campo label {
@@ -743,6 +756,26 @@ nav[aria-label="Navegação principal"] {
 
 /* media queries */
 /* 640, 768 e 1024px */
+@media (max-width: 767px) {
+  .filtros-destinos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filtros-destinos .campo:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 479px) {
+  .filtros-destinos {
+    grid-template-columns: 1fr;
+  }
+
+  .filtros-destinos .campo:first-child {
+    grid-column: auto;
+  }
+}
+
 @media (min-width: 640px) {
   .cards,
   .galeria-destinos {

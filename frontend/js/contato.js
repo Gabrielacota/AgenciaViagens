@@ -8,9 +8,9 @@ formulario.addEventListener("submit", async (evento) => {
     nome: formulario.elements.nome.value.trim(),
     email: formulario.elements.email.value.trim(),
     viajantes: Number(formulario.elements.viajantes.value),
-    data_viagem: formulario.elements["data-viagem"].value,
+    data_viagem: formulario.elements.dataViagem.value,
     destino: Number(formulario.elements.destino.value),
-    observacoes: formulario.elements.observacoes.value.trim(),
+    observacoes: formulario.elements.observacoes.value,
   };
 
   try {

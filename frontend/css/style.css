@@ -938,8 +938,8 @@ legend {
   accent-color: var(--primaria);
 }
 
-/* botão do formulário: texto sempre branco, só o fundo escurece no hover
-   (segue o mesmo padrão de .botao.primario:hover) */
+
+/* botão do formulário*/
 form button {
   padding: 0.8rem 1.5rem;
   border: 2px solid transparent;
@@ -1040,3 +1040,12 @@ form button:focus-visible {
     color: crimson;
   }
 }
+.voltar {
+  display: inline-block;
+  margin: 3rem 0 0 3rem;
+  color: var(--azul-500);
+  font-weight: 500.25;
+  font-size: var(--texto-h3);
+  text-decoration: none;
+}
+

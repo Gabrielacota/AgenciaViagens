@@ -345,6 +345,59 @@ textarea:focus-visible {
 }
 
 /* tamanho e desativado */
+.botao.perigo {
+  background-color: transparent;
+  border-color: var(--erro-borda);
+  color: var(--erro-borda);
+}
+
+.botao.perigo:hover {
+  background-color: var(--erro-borda);
+  color: #ffffff;
+}
+
+#admin {
+  padding-top: var(--esp-5);
+}
+
+.acoes-admin,
+.acoes-modal {
+  display: flex;
+  gap: var(--esp-3);
+}
+
+.acoes-admin {
+  margin-top: var(--esp-3);
+}
+
+.acoes-modal {
+  justify-content: flex-end;
+}
+
+#modal-destino form {
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+}
+
+#modal-destino {
+  margin: auto;
+  max-height: 90vh;
+  width: min(32rem, 92vw);
+  padding: var(--esp-6);
+  border: 0;
+  border-radius: var(--raio-card);
+  box-shadow: var(--sombra-suave);
+}
+
+#modal-destino::backdrop {
+  background-color: rgba(15, 42, 82, 0.55);
+}
+
+#modal-destino h2 {
+  margin-bottom: var(--esp-4);
+}
+
 .botao.pequeno {
   min-height: 44px;
   padding: 0.6rem 1.25rem;

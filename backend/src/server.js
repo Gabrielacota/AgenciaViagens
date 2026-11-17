@@ -46,7 +46,7 @@ app.post("/api/login", async (req, res) => {
 
       if (hashInformado === hash) {
         const token = jwt.sign({id: usuario.id, admin: usuario.admin}, process.env.JWT_SECRET, {expiresIn: "1d"});
-        return res.json({token});
+        return res.json({token, admin: usuario.admin});
       }
     }
 

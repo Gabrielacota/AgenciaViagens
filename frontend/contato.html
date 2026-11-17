@@ -57,7 +57,7 @@
 
     <div class="conteudo">
       <!-- FORMULÁRIO -->
-      <form class="formulario">
+      <form class="formulario" id="form-contato">
         <!-- Nome -->
         <div class="campo">
           <label for="nome">Nome: </label>
@@ -104,83 +104,21 @@
           <input type="date" id="data-viagem" name="data-viagem" required />
         </div>
 
-        <!-- Radio -->
-        <fieldset class="opcoes">
-          <legend>Tipo de viagem:</legend>
-          <div class="opcao">
-            <input
-              type="radio"
-              id="lazer"
-              name="tipo_viagem"
-              value="lazer"
-              required
-            />
-            <label for="lazer">Lazer</label>
-          </div>
-
-          <div class="opcao">
-            <input
-              type="radio"
-              id="aventura"
-              name="tipo_viagem"
-              value="aventura"
-            />
-            <label for="aventura">Aventura</label>
-          </div>
-
-          <div class="opcao">
-            <input
-              type="radio"
-              id="familia"
-              name="tipo_viagem"
-              value="familia"
-            />
-            <label for="familia">Família </label>
-          </div>
-        </fieldset>
-
-        <!-- Checkbox -->
-        <fieldset class="opcoes">
-          <legend>Serviços extras:</legend>
-
-          <div class="opcao">
-            <input type="checkbox" id="hotel" name="servicos" value="hotel" />
-            <label for="hotel">Hotel</label>
-          </div>
-
-          <div class="opcao">
-            <input
-              type="checkbox"
-              id="transporte"
-              name="servicos"
-              value="transporte"
-            />
-            <label for="transporte">Transporte</label>
-          </div>
-
-          <div class="opcao">
-            <input type="checkbox" id="guia" name="servicos" value="guia" />
-            <label for="guia">Guia Turístico</label>
-          </div>
-        </fieldset>
-
         <!-- Select -->
         <div class="campo">
           <label for="destino">Destino: </label>
 
           <select id="destino" name="destino" required>
             <option value="">Selecione um destino</option>
-            <option value="maragogi">Maragogi</option>
-            <option value="chapada_diamantina">Chapada Diamantina</option>
-            <option value="lisboa">Lisboa</option>
-            <option value="orlando">Orlando</option>
-            <option value="zermatt">Zermatt</option>
-            <option value="cairo">Cairo</option>
-            <option value="recife">Recife</option>
-            <option value="autodromo_interlagos">
-              Autódromo de Interlagos
-            </option>
-            <option value="paris">Paris</option>
+            <option value="1">Maragogi</option>
+            <option value="2">Chapada Diamantina</option>
+            <option value="3">Lisboa</option>
+            <option value="4">Orlando</option>
+            <option value="5">Zermatt</option>
+            <option value="6">Cairo</option>
+            <option value="7">Recife</option>
+            <option value="8">Autódromo de Interlagos</option>
+            <option value="9">Paris</option>
           </select>
         </div>
 
@@ -193,7 +131,6 @@
             minlength="10"
             maxlength="500"
             placeholder="Digite informações adicionais sobre sua viagem..."
-            required
           ></textarea>
         </div>
 

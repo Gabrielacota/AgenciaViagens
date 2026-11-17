@@ -1,8 +1,8 @@
 CREATE TABLE usuarios (
-    id       SERIAL PRIMARY KEY,
-    nome     VARCHAR(120) NOT NULL,
-    email    VARCHAR(150) NOT NULL UNIQUE,
-    senha    TEXT NOT NULL,
+    id        SERIAL PRIMARY KEY,
+    nome      VARCHAR(120) NOT NULL,
+    email     VARCHAR(150) NOT NULL UNIQUE,
+    senha     TEXT NOT NULL,
     criado_em TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
@@ -31,30 +31,10 @@ CREATE TABLE solicitacoes (
     nome_cliente  VARCHAR(120) NOT NULL,
     email         VARCHAR(150) NOT NULL,
     num_viajantes INTEGER NOT NULL
-                  CHECK (num_viajantes >= 1),
+                  CHECK (num_viajantes BETWEEN 1 AND 20),
     data_viagem   DATE NOT NULL,
-    observacoes   TEXT,
+    observacoes   VARCHAR(500) NOT NULL,
     criado_em     TIMESTAMP NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE servicos (
-    id   SERIAL PRIMARY KEY,
-    nome VARCHAR(30) NOT NULL UNIQUE
-);
-
-INSERT INTO servicos (nome) VALUES
-('Hotel'),
-('Transporte'),
-('Guia');
-
-CREATE TABLE solicitacao_servicos (
-    solicitacao_id INTEGER NOT NULL
-        REFERENCES solicitacoes(id) ON DELETE CASCADE,
-
-    servico_id INTEGER NOT NULL
-        REFERENCES servicos(id) ON DELETE RESTRICT,
-
-    PRIMARY KEY (solicitacao_id, servico_id)
 );
 
 INSERT INTO destinos (

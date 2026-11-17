@@ -52,12 +52,36 @@
           <h1>Escolha o seu destino</h1>
         </div>
       </section>
-      <section class="secao container">
-        <input type="search" id="input-destinos" placeholder="Buscar destinos...">
-        <p id="carregando-destinos">
-          Carregando destinos...
+      <section class="secao container secao-destinos">
+        <div class="filtros-destinos">
+          <div class="campo">
+            <label for="input-destinos">Buscar por destinos:</label>
+            <input
+              type="search"
+              id="input-destinos"
+              placeholder="Exemplo: Lisboa"
+            />
+          </div>
+
+          <div class="campo">
+            <label for="filtro-abrangencia">Abrangência:</label>
+            <select name="filtro-abrangencia" id="filtro-abrangencia">
+              <option value="">Todas</option>
+              <option value="Nacional">Nacional</option>
+              <option value="Internacional">Internacional</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="filtro-duracao">Duração em dias:</label>
+            <input id="filtro-duracao" type="number" min="1" />
+          </div>
+        </div>
+
+        <p id="carregando-destinos">Carregando destinos...</p>
+
+        <p id="sem-resultados" style="display: none">
+          Nenhum destino corresponde à sua busca.
         </p>
-        <p id="sem-resultados" style="display: none;">Nenhum destino corresponde à sua busca.</p>
       </section>
     </main>
     <footer class="rodape">

@@ -17,8 +17,8 @@ CREATE TABLE destinos (
                   CHECK (preco_inicial > 0),
     duracao_dias  INTEGER NOT NULL
                   CHECK (duracao_dias > 0),
-    imagem_url    VARCHAR(200),
-    descricao_alt VARCHAR(200) NOT NULL,
+    imagem_url    TEXT,
+    descricao_alt VARCHAR(50) NOT NULL,
     ativo         BOOLEAN NOT NULL DEFAULT TRUE,
     criado_em     TIMESTAMP NOT NULL DEFAULT NOW(),
 
@@ -36,26 +36,6 @@ CREATE TABLE solicitacoes (
     data_viagem   DATE NOT NULL,
     observacoes   TEXT,
     criado_em     TIMESTAMP NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE servicos (
-    id   SERIAL PRIMARY KEY,
-    nome VARCHAR(30) NOT NULL UNIQUE
-);
-
-INSERT INTO servicos (nome) VALUES
-('Hotel'),
-('Transporte'),
-('Guia');
-
-CREATE TABLE solicitacao_servicos (
-    solicitacao_id INTEGER NOT NULL
-        REFERENCES solicitacoes(id) ON DELETE CASCADE,
-
-    servico_id INTEGER NOT NULL
-        REFERENCES servicos(id) ON DELETE RESTRICT,
-
-    PRIMARY KEY (solicitacao_id, servico_id)
 );
 
 INSERT INTO destinos (

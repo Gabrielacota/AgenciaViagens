@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap"
       rel="stylesheet"
     />
+    <script src="js/contato.js" defer></script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -57,7 +58,7 @@
 
     <div class="conteudo">
       <!-- FORMULÁRIO -->
-      <form class="formulario">
+      <form class="formulario" id="form-contato">
         <!-- Nome -->
         <div class="campo">
           <label for="nome">Nome: </label>
@@ -100,69 +101,9 @@
 
         <!-- Data -->
         <div class="campo">
-          <label for="data-viagem">Data da Viagem: </label>
-          <input type="date" id="data-viagem" name="data-viagem" required />
+          <label for="dataViagem">Data da Viagem: </label>
+          <input type="date" id="dataViagem" name="dataViagem" required />
         </div>
-
-        <!-- Radio -->
-        <fieldset class="opcoes">
-          <legend>Tipo de viagem:</legend>
-          <div class="opcao">
-            <input
-              type="radio"
-              id="lazer"
-              name="tipo_viagem"
-              value="lazer"
-              required
-            />
-            <label for="lazer">Lazer</label>
-          </div>
-
-          <div class="opcao">
-            <input
-              type="radio"
-              id="aventura"
-              name="tipo_viagem"
-              value="aventura"
-            />
-            <label for="aventura">Aventura</label>
-          </div>
-
-          <div class="opcao">
-            <input
-              type="radio"
-              id="familia"
-              name="tipo_viagem"
-              value="familia"
-            />
-            <label for="familia">Família </label>
-          </div>
-        </fieldset>
-
-        <!-- Checkbox -->
-        <fieldset class="opcoes">
-          <legend>Serviços extras:</legend>
-
-          <div class="opcao">
-            <input type="checkbox" id="hotel" name="servicos" value="hotel" />
-            <label for="hotel">Hotel</label>
-          </div>
-
-          <div class="opcao">
-            <input
-              type="checkbox"
-              id="transporte"
-              name="servicos"
-              value="transporte"
-            />
-            <label for="transporte">Transporte</label>
-          </div>
-
-          <div class="opcao">
-            <input type="checkbox" id="guia" name="servicos" value="guia" />
-            <label for="guia">Guia Turístico</label>
-          </div>
-        </fieldset>
 
         <!-- Select -->
         <div class="campo">

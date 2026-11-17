@@ -208,6 +208,36 @@ app.delete("/api/destinos/:id", autenticar, soAdmin, async (req, res) => {
   }
 });
 
+app.post("/api/solicitacoes", async (req, res) => {
+  const {nome, email, viajantes, data_viagem, destino, observacoes} = req.body;
+  if (!nome || !email || !viajantes || !data_viagem || !destino) {
+    return res.status(400).json({
+      mensagem: "Preencha todos os campos"
+    });
+  }
+
+  try {
+    const resultado = await pool.query(
+      `INSERT INTO solicitacoes
+         (destino_id, nome_cliente, email, num_viajantes, data_viagem, observacoes)
+      VALUES ($1, $2, $3, $4, $5, $6)
+      RETURNING id`,
+      [destino, nome, email, viajantes, data_viagem, observacoes],
+    );
+
+    return res.status(201).json({
+      mensagem: "Solicitação enviada com sucesso!",
+      id: resultado.rows[0].id,
+    });
+  } catch (erro) {
+    console.error("Erro ao cadastrar solicitação:", erro);
+
+    return res.status(500).json({
+      mensagem: "Não foi possível enviar sua solicitação.",
+    })
+  }
+})
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {

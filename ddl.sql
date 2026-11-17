@@ -3,6 +3,7 @@ CREATE TABLE usuarios (
     nome     VARCHAR(120) NOT NULL,
     email    VARCHAR(150) NOT NULL UNIQUE,
     senha    TEXT NOT NULL,
+    admin    BOOLEAN NOT NULL DEFAULT FALSE,
     criado_em TIMESTAMP NOT NULL DEFAULT NOW()
 );
 

@@ -24,6 +24,17 @@ function exibirDestinos(destinos) {
                                <a class="botao secundario" href="contato.html">Saiba mais</a>
                              </div>`;
 
+    if (ehAdmin) {
+      const acoes = document.createElement("div");
+      acoes.classList.add("acoes-admin");
+      acoes.innerHTML = `<button class="botao pequeno secundario">Editar</button>
+                         <button class="botao pequeno perigo">Desativar</button>`;
+      acoes.children[0].onclick = () => abrirFormulario(destino);
+      acoes.children[1].onclick = () => desativarDestino(destino.id);
+
+      cardDestino.querySelector(".card-texto").append(acoes);
+    }
+
     galeriaDestinos.appendChild(cardDestino);
   });
   secao.appendChild(galeriaDestinos);

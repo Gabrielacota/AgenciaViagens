@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/admin.js" defer></script>
     <script src="js/destinos.js" defer></script>
   </head>
   <body>
@@ -51,6 +52,53 @@
         <div class="container">
           <h1>Escolha o seu destino</h1>
         </div>
+      </section>
+      <section id="admin" class="container" style="display: none">
+        <button class="botao primario pequeno" onclick="abrirFormulario()">
+          Novo destino
+        </button>
+
+        <dialog id="modal-destino">
+        <form id="form-destino">
+          <h2 id="titulo-modal"></h2>
+          <input type="hidden" name="id" />
+          <div class="campo">
+            <label for="nome_destino">Nome:</label>
+            <input id="nome_destino" name="nome_destino" required />
+          </div>
+          <div class="campo">
+            <label for="abrangencia">Abrangência:</label>
+            <select id="abrangencia" name="abrangencia">
+              <option value="nacional">Nacional</option>
+              <option value="internacional">Internacional</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="descricao">Descrição:</label>
+            <input id="descricao" name="descricao" />
+          </div>
+          <div class="campo">
+            <label for="preco_inicial">Preço inicial:</label>
+            <input id="preco_inicial" name="preco_inicial" type="number" step="0.01" required />
+          </div>
+          <div class="campo">
+            <label for="duracao_dias">Duração em dias:</label>
+            <input id="duracao_dias" name="duracao_dias" type="number" required />
+          </div>
+          <div class="campo">
+            <label for="imagem_url">Imagem (caminho):</label>
+            <input id="imagem_url" name="imagem_url" />
+          </div>
+          <div class="campo">
+            <label for="descricao_alt">Texto alternativo da imagem:</label>
+            <input id="descricao_alt" name="descricao_alt" required />
+          </div>
+          <div class="acoes-modal">
+            <button class="botao secundario pequeno" type="button" onclick="modalDestino.close()">Cancelar</button>
+            <button class="botao primario pequeno" type="submit">Salvar</button>
+          </div>
+        </form>
+        </dialog>
       </section>
       <section class="secao container secao-destinos">
         <div class="filtros-destinos">

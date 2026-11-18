@@ -53,10 +53,12 @@ Na pasta `backend`, crie o arquivo `.env`:
 ```env
 DATABASE_URL=postgresql://USUARIO:SENHA@HOST-pooler.REGIAO.aws.neon.tech/neondb?sslmode=require
 PORT=3000
+JWT_SECRET=sua_chave_secreta_aqui
 ```
 
 - `DATABASE_URL`: connection string do Neon (Dashboard → Connect).
 - `PORT`: porta do Express. Se omitir, o servidor usa `3000`.
+- `JWT_SECRET`: chave secreta para validar os tokens JWT durante a autenticação dos usuários.
 
 ### 3. Instalar e iniciar
 

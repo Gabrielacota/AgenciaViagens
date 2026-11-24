@@ -49,8 +49,8 @@ function exibirSemDestinos() {
 
 function exibirErro(erro) {
   const secao = document.querySelector(".secao");
-  console.error(erro);
   secao.innerHTML = `<p class="mensagem-erro">Ocorreu um erro ao carregar os destinos. Tente novamente mais tarde.</p>`;
+  console.error(erro);
 }
 
 const estadoCarregamento = document.getElementById("carregando-destinos");
